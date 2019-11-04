@@ -22,3 +22,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 /* Rutas momentaneas de Pacientes */
 Route::get('/', 'PacienteController@index')->name('pacientes.index');
 Route::get('/create', 'PacienteController@create')->name('pacientes.create'); 
+Route::get('/prueba', 'PacienteController@calcularEdad')->name('pacientes.edad'); 

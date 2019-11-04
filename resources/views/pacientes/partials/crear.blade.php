@@ -8,13 +8,14 @@
             </div>
             <div class="form-group">
                 <label class="control-label">Dirección</label>
-                <textarea class="form-control" rows="4" name="direccion" placeholder="Ingrese la Dirección"></textarea>
+                <textarea class="form-control
+                " rows="4" name="direccion" placeholder="Ingrese la Dirección"></textarea>
             </div>
             <div class="form-group">
                 <label class="control-label">Telefono</label>
                 <div class="row" id="telefono">
                     <div class="col-lg-4  col-md-12 d-flex">
-                        <input class="form-control mr-2" type="text" name="telefono">
+                        <input class="form-control mr-2" type="text" name="telefono[]">
                         <a class="btn btn-outline-info mr-2"><i class="fa fa-plus icon-expe "></i></a>
                     </div>
                 </div>
@@ -25,6 +26,10 @@
                     placeholder="Ingrese el padecimiento"></textarea>
             </div>
             <div class="form-group">
+                <label class="control-label">Recomendacion</label>
+                <input class="form-control" type="text" name="recomendacion" placeholder="Ingrese Nombre de la Recomendacion">
+            </div>
+            <div class="form-group" id="validacionFecha">
                 <div class="row">
                     <div class="col-6">
                         <label class="control-label">Fecha de Nacimiento</label>
