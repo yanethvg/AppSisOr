@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta name="description"
-        content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <meta name="description" content="AppsSisOr Pagina para apoyar al area medica de Ortodoncia">
     <title>@yield('titulo')</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css"
         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -49,7 +49,11 @@
     <main class="app-content">
         <div class="app-title">
             <div>
-                @yield('title_content')
+                <div class="row">
+                    <div class="col-md-12">
+                        @yield('title_content')
+                    </div>
+                </div>
             </div>
             <ul class="app-breadcrumb breadcrumb">
                 <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
@@ -65,8 +69,7 @@
     <script src="{{ asset('js/main.js') }}"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="{{ asset('js/plugins/pace.min.js') }}"></script>
-    <!-- Page specific javascripts-->
-    <script type="text/javascript" src="{{ asset('js/plugins/chart.js') }}"></script>
+    @yield('custom_javas')
 </body>
 
 </html>
