@@ -1,7 +1,7 @@
 const checkBox = document.querySelector('#estudia').nextElementSibling;
 
 let elementosEstudiantiles = document.getElementById('infoEstudiantil');
-let datos = document.getElementById("datos_estudiantiles");
+
 
 checkBox.addEventListener('click',function(){
     if(!document.querySelector('#estudia').checked){
@@ -31,5 +31,6 @@ function crearElementos(){
     elementosEstudiantiles.insertAdjacentHTML('beforeend', div);
 }
 function eliminarElementos(){
+    let datos = document.getElementById("datos_estudiantiles");
     elementosEstudiantiles.removeChild(datos);
 }
