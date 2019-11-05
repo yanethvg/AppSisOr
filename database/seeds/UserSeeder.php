@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -12,7 +13,10 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class, 10)->create();
+        factory(App\User::class, 30)->create()->each(function($user){
+            $user->assignRoles(Role::all()[random_int(0,3)]->slug);
+        });
+
         User::create(
             [
             'nombre' => 'erick ventura',
@@ -22,7 +26,7 @@ class UserSeeder extends Seeder
             'password' =>Hash::make("holamundo") , // password
             'remember_token' => Str::random(10),
             ]
-        );
+        )->assignRoles('admin');
 
         User::create(
             [
@@ -33,7 +37,7 @@ class UserSeeder extends Seeder
             'password' =>Hash::make("holamundo") , // password
             'remember_token' => Str::random(10),
             ]
-        );
+        )->assignRoles('admin');
 
         User::create(
             [
@@ -44,7 +48,7 @@ class UserSeeder extends Seeder
             'password' =>Hash::make("holamundo") , // password
             'remember_token' => Str::random(10),
             ]
-        );
+        )->assignRoles('odontologo');
 
 
         User::create(
@@ -56,6 +60,18 @@ class UserSeeder extends Seeder
             'password' =>Hash::make("holamundo") , // password
             'remember_token' => Str::random(10),
             ]
-        );
+        )->assignRoles('estrategico');
+
+        User::create(
+            [
+            'nombre' => 'marcos christian',
+            'usuario'=>'mcfuentes',
+            'email' => 'mcfuente@fakemail.com',
+            'email_verified_at' => now(),
+            'password' =>Hash::make("holamundo") , // password
+            'remember_token' => Str::random(10),
+            ]
+        )->assignRoles('tactico');
+
     }
 }

@@ -39,4 +39,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function scopeFilter($query,$q){
+        if($q)
+            $query->where('usuario', 'ILIKE',"%$q%")->orWhere('nombre', 'ILIKE',"%$q%");
+    }
+
+
+    public function scopeRol($query,$rol){
+        if($rol)
+            $query->whereHas('roles',function($q) use ($rol) {
+                $q->where('slug',$rol);
+            });
+    }
 }

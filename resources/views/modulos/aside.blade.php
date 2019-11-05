@@ -10,4 +10,7 @@
     <li><a class="app-menu__item" href="{{route('pacientes.index')}}">
     <i class="app-menu__icon fa fa-plus-square"></i>
     <span class="app-menu__label">Expedientes</span></a></li>
+    <li><a class="app-menu__item" href="{{route('usuarios.index')}}">
+        <i class="app-menu__icon fa fa-users"></i>
+        <span class="app-menu__label">Usuarios</span></a></li>
 </ul>
