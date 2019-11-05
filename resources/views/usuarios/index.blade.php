@@ -86,7 +86,6 @@ Listado de Usuarios
             </nav>
             @include('usuarios.partials.create')
             @include('usuarios.partials.edit')
-            @include('usuarios.partials.show')
         </div>
 
     </div>
