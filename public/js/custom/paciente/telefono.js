@@ -11,7 +11,7 @@ botonAgregar.addEventListener("click", function(e) {
     if (cantidad !== 2) {
         div=`
         <div class="col-lg-4 col-md-12 d-flex "> 
-            <input class="form-control mr-2" type="text" name="telefono[]">
+            <input class="form-control mr-2" type="text" name="telefono[]" required>
             <a class="btn btn-outline-danger mr-2 "><i class="fa fa-trash icon-expe "></i></a>
         </div>
         `;

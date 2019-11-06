@@ -5,6 +5,7 @@ let elementosEstudiantiles = document.getElementById('infoEstudiantil');
 
 checkBox.addEventListener('click',function(){
     if(!document.querySelector('#estudia').checked){
+        console.log('mi amor es bien necio');
         crearElementos();
     }else{
         eliminarElementos();
@@ -16,11 +17,11 @@ function crearElementos(){
         <div id="datos_estudiantiles" class="fadein">
         <div class="form-group">
             <label class="control-label">Nombre de Institución</label>
-            <input class="form-control" type="text" name="nombre-institucion" placeholder="Ingrese Nombre de Institución">
+            <input class="form-control" type="text" name="nombre-institucion" placeholder="Ingrese Nombre de Institución" required>
         </div>
         <div class="form-group">
             <label class="control-label">Grado</label>
-            <input class="form-control" type="text" name="grado" placeholder="Ingrese el Grado Academico">
+            <input class="form-control" type="text" name="grado" placeholder="Ingrese el Grado Academico" required>
         </div>
         <div class="form-group">
             <label class="control-label">Carrera</label>

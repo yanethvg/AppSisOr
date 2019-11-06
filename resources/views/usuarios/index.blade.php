@@ -3,9 +3,6 @@
 @section('titulo')
 Listado de Usuarios
 @endsection
-@section('custom_css')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-@endsection
 
 @section('title_content')
 <h1><i class="fa fa-dashboard"></i>Listado de Usuarios</h1>
@@ -96,8 +93,5 @@ Listado de Usuarios
 @endsection
 
 @section('custom_javas')
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/axios@0.19.0/dist/axios.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="{{ asset('js/custom/usuario/paginate.js') }}" ></script>
 @endsection

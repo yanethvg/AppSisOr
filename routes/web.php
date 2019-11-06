@@ -15,18 +15,9 @@ Route::get('/', function () {
     return redirect('login');
 });
 
-
-
 Auth::routes(["register"=>false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-/* Rutas momentaneas de Pacientes */
-Route::group(['middleware'=>'auth'], function () {
-    Route::get('/', 'PacienteController@index')->name('pacientes.index');
-    Route::get('/create', 'PacienteController@create')->name('pacientes.create');
-    Route::get('/prueba', 'PacienteController@calcularEdad')->name('pacientes.edad');
-});
 
 Route::group(['prefix'=>'usuarios','middleware'=>['auth','has.role:admin']], function () {
     //this is about how to add new users on the app

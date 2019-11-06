@@ -8,7 +8,7 @@ const validacionFecha = document.getElementById('validacionFecha');
 let div='';
 
 fecha.addEventListener('input', function () {
-  let url = `/prueba?fecha_nacimiento=${fecha.value}`
+  let url = `/pacientes/calcularEdad?fecha_nacimiento=${fecha.value}`
   // FETCH API
   fetch(url)
     .then(res => res.json())
@@ -31,11 +31,11 @@ function agregarElementosAnios () {
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <label class="control-label">Nombre de la Madre</label>
-                    <input class="form-control" type="text" name="madre" placeholder="Ingrese el nombre de la madre">
+                    <input class="form-control" type="text" name="madre" placeholder="Ingrese el nombre de la madre" required>
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <label class="control-label">Ocupación de la  Madre</label>
-                    <input class="form-control" type="text" name="ocupacion_madre" placeholder="Ingrese la ocupacion de la madre">
+                    <input class="form-control" type="text" name="ocupacion_madre" placeholder="Ingrese la ocupacion de la madre" required>
                 </div>
             </div>
         </div>
@@ -43,11 +43,11 @@ function agregarElementosAnios () {
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <label class="control-label">Nombre del Padre</label>
-                    <input class="form-control" type="text" name="padre" placeholder="Ingrese el nombre de la madre">
+                    <input class="form-control" type="text" name="padre" placeholder="Ingrese el nombre de l padre" required>
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <label class="control-label">Ocupación del Padre</label>
-                    <input class="form-control" type="text" name="ocupacion_padre" placeholder="Ingrese la ocupacion del padre">
+                    <input class="form-control" type="text" name="ocupacion_padre" placeholder="Ingrese la ocupacion del padre" required>
                 </div>
             </div>
         </div>
