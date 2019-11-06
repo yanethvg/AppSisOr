@@ -25,8 +25,7 @@ new Vue({
             }
 
         },
-        cantidad : 0
-        ,
+
         errors: {},
         telefonos:{0:false,1:false}
     },
@@ -44,20 +43,26 @@ new Vue({
         },
         agregarTelefono: function(){
             //Para agregar Items a los telefono
-            if (this.cantidad < 2) {
-                this.telefonos[`${this.cantidad}`]=true;
-            }
-            this.cantidad++;
+                if(!this.telefonos[`0`]){
+                    this.telefonos[`0`]=true;
+                }else if(!this.telefonos[`1`]){
+                    this.telefonos[`1`]=true;
+                }
+
 
         },
         borrarTelefono: function(e){
-            console.log(e);
-            this.cantidad--;
-            if(e.target.classList.contains('btn-outline-danger') ){
-                e.target.parentElement.remove();
-            }else if(e.target.classList.contains('fa-trash')){
-                e.target.parentElement.parentElement.remove();
+
+            if(e.target.id=="telAuxFirst" || e.target.parentElement.id=="telAuxFirst"){
+                this.telefonos['0']=false;
+                return;
             }
+            //this is for the second telephone
+            this.telefonos['1']=false;
+            return;
+
+
+
 
         }
     }

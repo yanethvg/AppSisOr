@@ -20,11 +20,11 @@
                     </div>
                     <div v-if="telefonos['0']" class="col-lg-4 col-md-12 d-flex ">
                         <input class="form-control mr-2" type="text" name="telefono[]" >
-                        <a class="btn btn-outline-danger mr-2 " v-on:click.prevent='borrarTelefono($event)' ><i class="fa fa-trash icon-expe " ></i></a>
+                        <a class="btn btn-outline-danger mr-2 " id="telAuxFirst" v-on:click.prevent='borrarTelefono($event)' ><i class="fa fa-trash icon-expe " ></i></a>
                     </div>
                     <div v-if="telefonos['1']" class="col-lg-4 col-md-12 d-flex ">
                         <input class="form-control mr-2" type="text" name="telefono[]" >
-                        <a class="btn btn-outline-danger mr-2 " v-on:click.prevent='borrarTelefono($event)' ><i class="fa fa-trash icon-expe " ></i></a>
+                        <a class="btn btn-outline-danger mr-2 " id="telAuxSecond" v-on:click.prevent='borrarTelefono($event)' ><i class="fa fa-trash icon-expe " ></i></a>
                     </div>
                 </div>
             </div>
