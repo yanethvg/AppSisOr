@@ -23,12 +23,12 @@ Editar Expediente
                             <div class="card-body ">
                                     <div class="form-group">
                                             <label class="control-label">Nombre Completo</label>
-                                            <input class="form-control" type="text" name="nombre" placeholder="Ingrese Nombre Completo" >
+                                            <input class="form-control" type="text" name="nombre"  value="{{ old('nombre')??$paciente->nombre}}">
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">Dirección</label>
                                             <textarea class="form-control
-                                            " rows="4" name="direccion" placeholder="Ingrese la Dirección" ></textarea>
+                                            " rows="4" name="direccion">{{ old('direccion')??$paciente->direccion}}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">Telefono</label>
@@ -51,7 +51,7 @@ Editar Expediente
                                         <div class="row">
                                             <div class="col-6">
                                                 <label class="control-label">Fecha de Nacimiento</label>
-                                                <input class="form-control" type="date" name="fecha_nacimiento" id="fecha-nacimiento" >
+                                                <input class="form-control" type="date" name="fecha_nacimiento" id="fecha-nacimiento" value="{{ old('fecha_nacimiento')??$paciente->fecha_nacimiento}}">
                                             </div>
                                             <div class="col-6">
                                                 <label class="control-label">Edad</label>
@@ -90,13 +90,14 @@ Editar Expediente
                                 <div id="datos_trabajo">
                                         <div class="form-group">
                                             <label class="control-label">Dirección de Trabajo</label>
-                                            <input class="form-control" type="text" name="direccion_trabajo" placeholder="Ingrese la Dirección de Trabajo" >
+                                            <textarea class="form-control
+                                            " rows="4" name="direccion">{{ old('direccion_trabajo')??$paciente->direccion_trabajo}}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">Profesión</label>
-                                            <input class="form-control" type="text" name="profesion" placeholder="Ingrese la Profesión">
+                                            <input class="form-control" type="text" name="profesion" placeholder="Ingrese la Profesión"  value="{{ old('profesion')??$paciente->profesion}}">
                                         </div>
-                                    </div>
+                                </div>
                         </div>
                 </div>
                 <button class="btn btn-primary btn-block" type="submit"><i  class="fa fa-fw fa-lg fa-check-circle"></i>Guardar</button>&nbsp;&nbsp;&nbsp;</button>

@@ -36,8 +36,9 @@ Listado de Expedientes
                             <td>@{{paciente.nombre}}</td>
                             <td>@{{paciente.fecha_nacimiento}}</td>
                             <td class="d-flex justify-content-center">
-                            <a class="btn btn-outline-primary mr-2" href="/pacientes/@{{paciente.id}}/edit"><i class="fa fa-eye icon-expe"></i></button>
-                                    <a class="btn btn-outline-danger mr-2"><i class="fa fa-trash icon-expe"></i></a>
+                            <a class="btn btn-outline-primary mr-2"><i class="fa fa-eye icon-expe"></i></button>
+                            <a class="btn btn-outline-primary mr-2" v-bind:href="editPaciente(paciente.id)"><i class="fa fa-pencil icon-expe"></i></button>
+                            <a class="btn btn-outline-warning mr-2"><i class="fa fa-lock icon-expe"></i></a>
                             </td>
                         </tr>
                     </tbody>

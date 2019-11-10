@@ -57,6 +57,10 @@ new Vue({
         changePage: function(page) {
 			this.pagination.current_page = page;
 			this.getPacientes(page);
+        },
+        editPaciente: function(id){
+            let url=`/pacientes/${id}/edit`;
+            return url;
         }
     }
 
