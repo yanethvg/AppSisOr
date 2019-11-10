@@ -6,21 +6,18 @@ Editar Expediente
 
 @section('title_content')
 <h1><i class="fa fa-dashboard"></i>Editar Expediente</h1>
-<p>Edición de Expediente para paciente</p>
 @endsection
 
 @section('breadcrumb')
 <li class="breadcrumb-item"><a href="{{route('pacientes.index')}}">Pacientes</a></li>
-<li class="breadcrumb-item"><a href="{{route('pacientes.create')}}">Editar Expediente</a></li>
 @endsection
 
 
 @section('content')
 <div class="tile-body">
         <div class="tile">
-            <h3 class="tile-title">Editar Expediente</h3>
             <div class="tile-body">
-                    <form id="store" >
+                    <form>
                     <div class="card border-primary mb-3">
                             <div class="card-header text-white bg-primary">Datos Personales</div>
                             <div class="card-body ">

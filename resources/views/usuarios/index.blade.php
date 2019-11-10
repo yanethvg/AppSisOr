@@ -61,7 +61,7 @@ Listado de Usuarios
                 </table>
             </div>
             <nav>
-                <ul class="pagination">
+                <ul class="pagination d-flex justify-content-center">
                     <li v-if="pagination.current_page > 1" class="page-item" >
                         <a class='page-link' href="#" @click.prevent="changePage(pagination.current_page - 1)">
                             <span>Atras</span>

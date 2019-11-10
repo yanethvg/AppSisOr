@@ -2,23 +2,38 @@
 
 namespace App\Http\Controllers;
 
-use App\DetalleMenorEdad;
+
 use Illuminate\Http\Request;
 //request personalizado
 use App\Http\Requests\PacienteRequest;
 use App\Institucion;
-use Carbon\Carbon;
-
+use App\DetalleMenorEdad;
 use App\Paciente;
 use App\Telefono;
+use Carbon\Carbon;
+
 
 class PacienteController extends Controller
 {
+    public function list(Request $request){
+        $pacientes=Paciente::orderby('id','DESC')
+                ->paginate(5);
+
+        return [
+            'pagination' => [
+                'total'         => $pacientes->total(),
+                'current_page'  => $pacientes->currentPage(),
+                'per_page'      => $pacientes->perPage(),
+                'last_page'     => $pacientes->lastPage(),
+                'from'          => $pacientes->firstItem(),
+                'to'            => $pacientes->lastItem(),
+            ],
+            'pacientes' => $pacientes,
+        ];
+    }
     public function index()
     {
-        $pacientes = Paciente::orderBy('created_at', 'DESC');
-
-        return view('pacientes.index', compact('pacientes'));
+        return view('pacientes.index');
     }
     public function create()
     {
