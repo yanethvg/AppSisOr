@@ -61,6 +61,10 @@ new Vue({
         editPaciente: function(id){
             let url=`/pacientes/${id}/edit`;
             return url;
+        },
+        showPaciente: function(id){
+            let url=`/pacientes/${id}`;
+            return url;
         }
     }
 

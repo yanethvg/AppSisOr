@@ -10,6 +10,7 @@ Editar Expediente
 
 @section('breadcrumb')
 <li class="breadcrumb-item"><a href="{{route('pacientes.index')}}">Pacientes</a></li>
+<li class="breadcrumb-item"><a href="{{ route('pacientes.edit', ['id'=> old('id')??$paciente->id]) }}">Editar</a></li>
 @endsection
 
 
@@ -61,7 +62,7 @@ Editar Expediente
                                     </div>
                                     <div class="form-group">
                                             <label class="control-label">Recomendacion</label>
-                                            <input class="form-control" type="text" name="recomendacion" placeholder="Ingrese Nombre de la Recomendacion" >
+                                            <input class="form-control" type="text" name="recomendacion" placeholder="Ingrese Nombre de la Recomendacion" value="{{ old('recomendacion')??$paciente->recomendacion}}">
                                         </div>
                             </div>
                         </div>
