@@ -25,7 +25,10 @@ new Vue({
             }
 
         },
-
+        edad:null,
+        enableAge: false,
+        enableWork: false,
+        enableStudy: false,
         errors: {},
         telefonos:{0:false,1:false}
     },
@@ -60,10 +63,28 @@ new Vue({
             //this is for the second telephone
             this.telefonos['1']=false;
             return;
-
-
-
-
+        },
+        toggleAge: function(e){
+            let url = `/pacientes/calcularEdad?fecha_nacimiento=${e.target.value}`
+            // FETCH API
+            fetch(url)
+              .then(res => res.json())
+              .then(data => {
+                this.edad = `${data} años`;
+                if( data < 18){
+                    this.enableAge=true;
+                }else if(data >= 18){
+                    this.enableAge=false;
+                }
+                console.log(edad.value)
+              })
+              .catch(error => console.log(error))
+        },
+        toggleWork: function(){
+            this.enableWork=!this.enableWork;
+        },
+        toggleStudy: function(){
+            this.enableStudy=!this.enableStudy;
         }
     }
 });

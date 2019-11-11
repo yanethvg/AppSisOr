@@ -59,11 +59,37 @@ Crear Expediente
                     <div class="row">
                         <div class="col-6">
                             <label class="control-label">Fecha de Nacimiento</label>
-                            <input class="form-control" type="date" name="fecha_nacimiento" id="fecha-nacimiento" >
+                            <input class="form-control" type="date" name="fecha_nacimiento" v-on:input='toggleAge($event)' id="fecha-nacimiento" >
                         </div>
                         <div class="col-6">
                             <label class="control-label">Edad</label>
-                            <input class="form-control" type="text" disabled="disabled" id="edad" >
+                            <input class="form-control" v-model='edad' type="text" disabled="disabled" id="edad" >
+                        </div>
+                    </div>
+                </div>
+                <div id="datos_responsable" v-if='enableAge' class="mt-3 fadein" >
+                    <div class="form-group ">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12">
+                                <label class="control-label">Nombre de la Madre</label>
+                                <input class="form-control" type="text" name="madre" placeholder="Ingrese el nombre de la madre" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <label class="control-label">Ocupación de la  Madre</label>
+                                <input class="form-control" type="text" name="ocupacion_madre" placeholder="Ingrese la ocupacion de la madre" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12">
+                                <label class="control-label">Nombre del Padre</label>
+                                <input class="form-control" type="text" name="padre" placeholder="Ingrese el nombre de l padre" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <label class="control-label">Ocupación del Padre</label>
+                                <input class="form-control" type="text" name="ocupacion_padre" placeholder="Ingrese la ocupacion del padre" required>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -71,25 +97,46 @@ Crear Expediente
                     <p class="mr-4"><b>¿Estudia?</b></p>
                     <div class="toggle-flip mr-2">
                         <label>
-                            <input type="checkbox" id="estudia">
+                            <input type="checkbox" id="estudia" v-on:click='toggleStudy'>
                             <span class="flip-indecator " data-toggle-on="SI"
                                 data-toggle-off="NO"></span>
                         </label>
                     </div>
                 </div>
-                <div id="infoEstudiantil"></div>
+                <div id="datos_estudiantiles" v-if="enableStudy" class="fadein">
+                    <div class="form-group">
+                        <label class="control-label">Nombre de Institución</label>
+                        <input class="form-control" type="text" name="nombre-institucion" placeholder="Ingrese Nombre de Institución" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Grado</label>
+                        <input class="form-control" type="text" name="grado" placeholder="Ingrese el Grado Academico" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Carrera</label>
+                        <input class="form-control" type="text" name="carrera" placeholder="Ingrese la carrera">
+                    </div>
+                    </div>
                 <div>
                     <div class="form-group d-flex justify-content-center align-items-center">
                         <p class="mr-4"><b>¿Trabaja?</b></p>
                         <div class="toggle-flip mr-2">
                             <label>
-                                <input type="checkbox" id="trabaja"><span class="flip-indecator" data-toggle-on="SI"  data-toggle-off="NO"></span>
+                                <input type="checkbox" v-on:click='toggleWork'><span class="flip-indecator" data-toggle-on="SI"  data-toggle-off="NO"></span>
                             </label>
                         </div>
                     </div>
                 </div>
-                <div id="infoTrabajo"></div>
-                <button class="btn btn-primary btn-block" type="submit"><i  class="fa fa-fw fa-lg fa-check-circle"></i>Guardar</button>&nbsp;&nbsp;&nbsp;</button>
+                <div id="datos_trabajo" class="fadein" v-if='enableWork'>
+                    <div class="form-group">
+                        <label class="control-label">Dirección de Trabajo</label>
+                        <input class="form-control" type="text" name="direccion_trabajo" placeholder="Ingrese la Dirección de Trabajo" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Profesión</label>
+                        <input class="form-control" type="text" name="profesion" placeholder="Ingrese la Profesión" required>
+                    </div>
+                </div>                <button class="btn btn-primary btn-block" type="submit"><i  class="fa fa-fw fa-lg fa-check-circle"></i>Guardar</button>&nbsp;&nbsp;&nbsp;</button>
             </form>
         </div>
 
