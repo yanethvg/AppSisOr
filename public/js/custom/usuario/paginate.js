@@ -31,7 +31,7 @@ new Vue({
         },
 
         errors:{},
-        offset:10,
+        offset:2,
         usuarioActual: '',
         passwordTemporal:''
     },

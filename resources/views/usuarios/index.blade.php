@@ -6,7 +6,6 @@ Listado de Usuarios
 
 @section('title_content')
 <h1><i class="fa fa-dashboard"></i>Listado de Usuarios</h1>
-<p>Información de los Usuarios</p>
 @endsection
 
 @section('breadcrumb')
@@ -17,15 +16,14 @@ Listado de Usuarios
     <div class="clearfix">
     <div class="col-md-12" >
         <div class="tile"  id="crud" v-cloak>
-            <div class="d-flex mb-4">
-                <h3 class="tile-title mr-5 p-2">Usuarios</h3>
-                <div class="float-right ml-auto p-2">
+            <div class="d-flex mb-2">
+                <div class="float-right ml-auto">
                     <a class="btn btn-outline-success"  v-on:click.prevent="showCreate" href=""><i
-                            class="fa fa-user-plus icon-expe"></i>Registrar Usuario</a>
+                            class="fa fa-user-plus icon-expe"></i>Registrar</a>
                 </div>
             </div>
             <div class="table-responsive" >
-                <table class="table">
+                <table class="table text-center">
                     <thead>
                         <tr>
                             <th>Nombre Completo</th>

@@ -17,7 +17,7 @@ class UserController extends Controller
                 ->with('roles')
                 ->filter($request->q)
                 ->rol($request->rol)
-                ->paginate(10);
+                ->paginate(5);
 
         $roles=Role::all();
 
