@@ -66,7 +66,7 @@ new Vue({
     },
     methods: {
         getUsuarios: function(page){
-            let url="/usuarios/list?page="+page;
+            let url="/usuarios/list?page="+this.pagination.current_page;
             axios.get(url).then(response=> {
                 this.usuarios=response.data.users.data;
                 this.pagination=response.data.pagination;
@@ -148,7 +148,6 @@ new Vue({
                 this.errors = {};
                 this.usuarioActual=response.data.respuesta;
                 toastr.success(response.data.respuesta);
-
             })
             .catch((error)=>{
                 this.errors=error.response.data.errors

@@ -91,5 +91,5 @@ Listado de Usuarios
 @endsection
 
 @section('custom_javas')
-<script src="{{ asset('js/custom/usuario/paginate.js') }}" ></script>
+<script src="{{ asset('js/custom/usuario/crud.js') }}" ></script>
 @endsection

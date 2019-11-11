@@ -145,8 +145,5 @@ Crear Expediente
 @endsection
 
 @section('custom_javas')
-<script type="text/javascript" src="{{ asset('js/custom/paciente/fecha-nacimiento.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/custom/paciente/estudia.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/custom/paciente/trabaja.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/custom/paciente/Store.js') }}"></script>
 @endsection
