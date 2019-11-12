@@ -43,22 +43,41 @@ class PacienteController extends Controller
     public function calcularEdad(Request $request)
     {
         $edad = Carbon::parse($request->fecha_nacimiento)->age;
-        // dd($edad);
         return $edad;
     }
     public function store(Request $request)
     {
         $paciente = new Paciente;
         $paciente->nombre = $request->nombre;
-        $paciente->fecha_nacimiento = $request->direccion;
+        $paciente->fecha_nacimiento = $request->fecha_nacimiento;
+        $paciente->direccion = $request->direccion;
         $paciente->padecimiento = $request->padecimiento;
         $paciente->direccion_trabajo = $request->trabajo['direccionTrabajo'];
         $paciente->profesion = $request->trabajo['profesion'];
         $paciente->recomendacion = $request->recomendacion;
-        $paciente->direccion = $request->direccion;
-        //$paciente->save();
-        dd($request->trabajo->direccionTrabajo);
-
+        $paciente->direccion_trabajo = $request->trabajo["direccionTrabajo"];
+        $paciente->profesion = $request->trabajo["profesion"];
+        $paciente->save();
+        //telefonos
+        $paciente->syncTelefonos($request->telefono);
+        //estudiantes
+        if($request->estudia){
+        $paciente->institucion()->save(new Institucion(
+            ["carrera" => $request->estudia["carrera"],
+            "grado" => $request->estudia["grado"],
+            "nombre" => $request->estudia["nombreInstitucion"]]
+        ));
+        }
+        //encargados
+        if($request->encargados){
+        $paciente->detallesMenorEdad()->save(new DetalleMenorEdad(
+            ["madre" => $request->encargados["nombreMadre"],
+            "padre" => $request->encargados["nombrePadre"],
+            "ocupacion_madre" => $request->encargados["ocupacionMadre"],
+            "ocupacion_padre" => $request->encargados["ocupacionPadre"]]
+        ));
+        }
+        //dd($paciente->detallesMenorEdad()->get());
         return response()->json(['respuesta' => 'Paciente registrado con exito ']);
     }
     public function edit($id)

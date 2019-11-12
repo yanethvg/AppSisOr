@@ -8,22 +8,9 @@ new Vue({
             padecimiento: '',
             recomendacion: '',
             fechaNacimiento: '',
-            encargados: {
-                nombreMadre: '',
-                ocupacionMadre: '',
-                nombrePadre: '',
-                ocupacionPadre: '',
-            },
-            estudia: {
-                nombreInstitucion: '',
-                grado: '',
-                carrera: '',
-            },
-            trabajo: {
-                direccionTrabajo: '',
-                profesion: '',
-            }
-
+            encargados: null,
+            estudia: null,
+            trabajo: null
         },
         edad:null,
         enableAge: false,
@@ -38,6 +25,9 @@ new Vue({
                 .then(response => {
                     this.errors = {};
                     toastr.success(response.data.respuesta);
+                    setTimeout(() => {
+                        window.location.href='/pacientes';
+                    },1000)
                 })
                 .catch(error => {
                     errors = error.response.data.errors;
@@ -51,16 +41,17 @@ new Vue({
                 }else if(!this.telefonos[`1`]){
                     this.telefonos[`1`]=true;
                 }
-
-
         },
         borrarTelefono: function(e){
 
             if(e.target.id=="telAuxFirst" || e.target.parentElement.id=="telAuxFirst"){
                 this.telefonos['0']=false;
+                this.paciente.telefono.splice(1,1);
                 return;
             }
             //this is for the second telephone
+
+            this.paciente.telefono.splice(2,1);
             this.telefonos['1']=false;
             return;
         },
@@ -73,8 +64,10 @@ new Vue({
                 this.edad = `${data} años`;
                 if( data < 18){
                     this.enableAge=true;
+                    this.paciente.encargados={};
                 }else if(data >= 18){
                     this.enableAge=false;
+                    this.paciente.encargados = null;
                 }
                 console.log(edad.value)
               })
@@ -82,9 +75,19 @@ new Vue({
         },
         toggleWork: function(){
             this.enableWork=!this.enableWork;
+            if(!this.enableWork){
+                this.paciente.trabajo = null;
+                return;
+            }
+                this.paciente.trabajo={};
         },
         toggleStudy: function(){
             this.enableStudy=!this.enableStudy;
+            if(!this.enableStudy){
+                this.paciente.estudia= null;
+                return;
+            }
+            this.paciente.estudia={};
         }
     }
 });

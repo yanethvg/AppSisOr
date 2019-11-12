@@ -21,4 +21,13 @@ class Paciente extends Model
         return $this->hasOne(DetalleMenorEdad::class);
     }
 
+    public function syncTelefonos($telefonos){
+        $telefonosInstances=[];
+        foreach ($telefonos as $telefono) {
+            array_push($telefonosInstances,  new Telefono(['telefono'=>$telefono]));
+        }
+        $this->telefonos()->saveMany($telefonosInstances);
+
+    }
+
 }

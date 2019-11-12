@@ -65,7 +65,8 @@ new Vue({
         showPaciente: function(id){
             let url=`/pacientes/${id}`;
             return url;
-        }
+        },
+
     }
 
 });
