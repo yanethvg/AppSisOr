@@ -13,7 +13,7 @@ class PacienteRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,10 +26,20 @@ class PacienteRequest extends FormRequest
         return [
             'nombre'=>'required|string',
             'direccion'=>'required|string',
-            'telefono.*'=>'required|string|distinct|min:3',
+            'telefono' => 'required|array|min:1|max:3',
+            'telefono.*'=>'nullable|string|distinct|min:9',
             'padecimiento'=>'required',
-            'recomendacion' => 'nullable|string',
-            'fecha_nacimiento' => 'required|string',
+            'recomendacion' => 'nullable|string|max:20',
+            'fechaNacimiento' => 'required|before_or_equal:today',
+            'trabajo.direccionTrabajo' => 'nullable|string|max:70',
+            'trabajo.profesion' => 'nullable|string|max:30',
+            'estudia.carrera' => 'nullable|string|max:50',
+            'estudia.grado' => 'nullable|string|max:20',
+            'estudia.nombreInstitucion' => 'nullable|string|max:70',
+            'encargados.nombreMadre' => 'nullable|string',
+            'encargados.nombrePadre' => 'nullable|string',
+            'encargados.ocupacionMadre' => 'nullable|string',
+            'encargados.ocupacionPadre' => 'nullable|string',
         ];
     }
 }

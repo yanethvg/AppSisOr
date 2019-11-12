@@ -30,7 +30,7 @@ new Vue({
                     },1000)
                 })
                 .catch(error => {
-                    errors = error.response.data.errors;
+                    this.errors = error.response.data.errors;
                     console.log(errors);
                 });
         },

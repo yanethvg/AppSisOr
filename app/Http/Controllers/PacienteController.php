@@ -45,11 +45,11 @@ class PacienteController extends Controller
         $edad = Carbon::parse($request->fecha_nacimiento)->age;
         return $edad;
     }
-    public function store(Request $request)
+    public function store(PacienteRequest $request)
     {
         $paciente = new Paciente;
         $paciente->nombre = $request->nombre;
-        $paciente->fecha_nacimiento = $request->fecha_nacimiento;
+        $paciente->fecha_nacimiento = $request->fechaNacimiento;
         $paciente->direccion = $request->direccion;
         $paciente->padecimiento = $request->padecimiento;
         $paciente->direccion_trabajo = $request->trabajo['direccionTrabajo'];
