@@ -1,5 +1,6 @@
 new Vue({
     el: '#store',
+
     data: {
         paciente: {
             nombre: '',
@@ -16,7 +17,18 @@ new Vue({
         enableAge: false,
         enableWork: false,
         enableStudy: false,
-        errors: {},
+        errors: {
+                nombre: '',
+                direccion: '',
+                telefono: [],
+                padecimiento: '',
+                recomendacion: '',
+                fechaNacimiento: '',
+                encargados: {},
+                estudia: {},
+                trabajo: {}
+
+        },
         telefonos:{0:false,1:false}
     },
     methods: {
@@ -31,9 +43,10 @@ new Vue({
                 })
                 .catch(error => {
                     this.errors = error.response.data.errors;
-                    console.log(errors);
+                    console.log(this.errors['telefono.0']);
                 });
-        },
+        }
+        ,
         agregarTelefono: function(){
             //Para agregar Items a los telefono
                 if(!this.telefonos[`0`]){
@@ -65,9 +78,12 @@ new Vue({
                 if( data < 18){
                     this.enableAge=true;
                     this.paciente.encargados={};
+
                 }else if(data >= 18){
                     this.enableAge=false;
                     this.paciente.encargados = null;
+                    this.errors.estudia= {};
+
                 }
                 console.log(edad.value)
               })
@@ -85,6 +101,7 @@ new Vue({
             this.enableStudy=!this.enableStudy;
             if(!this.enableStudy){
                 this.paciente.estudia= null;
+
                 return;
             }
             this.paciente.estudia={};

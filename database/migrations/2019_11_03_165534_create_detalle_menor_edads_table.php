@@ -15,11 +15,10 @@ class CreateDetalleMenorEdadsTable extends Migration
     {
         Schema::create('detalles_menor_edad', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('madre')->nullable();
-            $table->string('padre')->nullable();
-            $table->string('otro')->nullable();
-            $table->string('ocupacion_madre')->nullable();
-            $table->string('ocupacion_padre')->nullable();
+            $table->string('madre',50)->nullable();
+            $table->string('padre',50)->nullable();
+            $table->string('ocupacion_madre',50)->nullable();
+            $table->string('ocupacion_padre',50)->nullable();
             $table->bigInteger('paciente_id')->unsigned();
             $table->foreign('paciente_id')->references('id')->on('pacientes')->onDelete('cascade');
 
