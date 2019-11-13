@@ -35,3 +35,7 @@ Route::group(['prefix' => 'bitacora'], function () {
     Route::post('/','BitacoraController@generatePDF');
 
 });
+
+
+//Report's Routes
+Route::get('/estrategico','PdfController@estrategico')->name("reporte.estrategico");
