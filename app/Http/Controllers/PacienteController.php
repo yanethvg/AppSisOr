@@ -63,7 +63,7 @@ class PacienteController extends Controller
         //estudiantes
         if($request->estudia){
         $paciente->institucion()->save(new Institucion(
-            ["carrera" => $request->estudia["carrera"],
+            ["carrera" => ($request->estudia["carrera"]??null),
             "grado" => $request->estudia["grado"],
             "nombre" => $request->estudia["nombreInstitucion"]]
         ));
@@ -71,10 +71,11 @@ class PacienteController extends Controller
         //encargados
         if($request->encargados){
         $paciente->detallesMenorEdad()->save(new DetalleMenorEdad(
-            ["madre" => $request->encargados["nombreMadre"],
-            "padre" => $request->encargados["nombrePadre"],
-            "ocupacion_madre" => $request->encargados["ocupacionMadre"],
-            "ocupacion_padre" => $request->encargados["ocupacionPadre"]]
+            ["madre" => ($request->encargados["nombreMadre"]??null),
+            "padre" => ($request->encargados["nombrePadre"]??null),
+            "ocupacion_madre" => ($request->encargados["ocupacionMadre"]??null),
+            "ocupacion_padre" => ($request->encargados["ocupacionPadre"]?? null)
+            ]
         ));
         }
         //dd($paciente->detallesMenorEdad()->get());
