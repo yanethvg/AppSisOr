@@ -22,6 +22,9 @@ Listado de Expedientes
                             class="fa fa-user-plus icon-expe"></i>Crear</a>
                 </div>
             </div>
+            @if(session()->has('msj'))
+				<div class="alert alert-success" role="alert">{{session('msj')}}</div>
+			@endif
             <div class="table-responsive">
                 <table class="table text-center">
                     <thead>

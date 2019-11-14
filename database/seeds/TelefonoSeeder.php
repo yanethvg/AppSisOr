@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Paciente;
 
-class PacienteSeeder extends Seeder
+class TelefonoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +11,6 @@ class PacienteSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Paciente::class,20)->create();
+        factory(App\Telefono::class,20)->create();
     }
 }

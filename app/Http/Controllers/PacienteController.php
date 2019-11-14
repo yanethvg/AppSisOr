@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //request personalizado
 use App\Http\Requests\PacienteRequest;
+use App\Http\Requests\PacienteRequestUpdate;
 use App\Institucion;
 use App\DetalleMenorEdad;
 use App\Paciente;
@@ -84,11 +85,63 @@ class PacienteController extends Controller
     public function edit($id)
     {
         $paciente = Paciente::findOrFail($id);
-        return view('pacientes.edit',compact('paciente'));
+        $telefonos = $paciente->telefonos()->get()->all();
+        $encargados=$paciente->detallesMenorEdad()->get()->first();
+        $estudia = $paciente->institucion()->get()->first();
+
+        $edad = Carbon::parse($paciente->fecha_nacimiento)->age;
+        return view('pacientes.edit',compact('paciente','telefonos','encargados','estudia','edad'));
+    }
+    public function update(Request $request, $id)
+    {
+        $paciente = Paciente::findOrFail($id);
+        $paciente->nombre = $request->nombre;
+        $paciente->fecha_nacimiento = $request->fecha_nacimiento;
+        $paciente->direccion = $request->direccion;
+        $paciente->padecimiento = $request->padecimiento;
+        $paciente->direccion_trabajo = $request->direccion_trabajo;
+        $paciente->profesion = $request->profesion;
+        $paciente->recomendacion = $request->recomendacion;
+        $paciente->save();
+        //consulta a la base
+        $telefonosConsulta = Telefono::where('paciente_id',$id)->delete();
+        for($i=0 ; $i<3 ;$i++){
+            if(!is_null($request->telefono[$i])){
+                $telefono = new Telefono;
+                $telefono->telefono = $request->telefono[$i];
+                $telefono->paciente_id = $id;
+                $telefono->save();
+            }
+        }
+        if($request->grado && $request->nombre_institucion){
+            $institucion= Institucion::where('paciente_id',$id)->delete();
+            $paciente->institucion()->save(new Institucion(
+            ["carrera" => ($request->carrera??null),
+            "grado" => $request->grado,
+            "nombre" => $request->nombre_institucion]
+        ));
+        }
+
+        $menores = DetalleMenorEdad::where('paciente_id',$id)->delete();
+        $paciente->detallesMenorEdad()->save(new DetalleMenorEdad(
+            ["madre" => ($request->madre??null),
+            "padre" => ($request->padre??null),
+            "ocupacion_madre" => ($request->ocupacion_madre??null),
+            "ocupacion_padre" => ($request->ocupacion_padre?? null)
+            ]
+        ));
+
+        return redirect('/pacientes')->with(['msj' => 'Paciente modificado con exito ']);
+
     }
     public function show($id)
     {
         $paciente = Paciente::findOrFail($id);
-        return view('pacientes.show',compact('paciente'));
+        $telefonos = $paciente->telefonos()->get()->all();
+        $encargados=$paciente->detallesMenorEdad()->get()->first();
+        $estudia = $paciente->institucion()->get()->first();
+        //dd($estudia);
+        $edad = Carbon::parse($paciente->fecha_nacimiento)->age;
+        return view('pacientes.show',compact('paciente','telefonos','encargados','estudia','edad'));
     }
 }

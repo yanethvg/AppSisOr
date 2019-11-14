@@ -34,20 +34,53 @@ Ver Expediente
                           <h3 class="mb-3 text-primary">Información Personal</h3>
                           <p><strong>Nombre Completo:</strong> <span>{{ old('nombre')??$paciente->nombre}}</span></p>
                           <p><strong>Dirección Residencial:</strong> {{ old('direccion')??$paciente->direccion}}</p>
+                          <p><strong>Edad:</strong> {{ old('edad')??$edad}}</p>
                           <p><strong>Telefonos:</strong>
+                            @foreach($telefonos as $telefono)
                             <ul>
-                              <li>7777</li>
+                              <li>{{$telefono->telefono}}</li>
                             </ul>
-                        </p>
-                        <p><strong>Fecha de Nacimiento:</strong> <span>{{ old('fecha_nacimiento')??$paciente->fecha_nacimiento}}</span></p>
-                        <p><strong>Recomendación:</strong> <span>{{ old('recomendacion')??$paciente->recomendacion}}</span></p>
+                            @endforeach
+                            </p>
+                            <p><strong>Fecha de Nacimiento:</strong> <span>{{ old('fecha_nacimiento')??$paciente->fecha_nacimiento}}</span></p>
+                            <p><strong>Recomendación:</strong>
+                                @if($paciente->recomendacion)
+                                <span>{{ old('recomendacion')??$paciente->recomendacion}}</span>
+                                @else
+                                <span>No tiene recomendación</span>
+                                @endif
+                            </p>
                         </div>
-
+                        @if($paciente->direccion_trabajo)
                         <div class="timeline-post">
                                 <h3 class="mb-3 text-primary">Información Laboral</h3>
                                 <p><strong>Dirección:</strong> <span>{{ old('direccion_trabajo')??$paciente->direccion_trabajo}}</span></p>
                                 <p><strong>Profesión:</strong> {{ old('profesion')??$paciente->profesion}}</p>
                         </div>
+                        @endif
+                        @if($edad<18)
+                        <div class="timeline-post">
+                            <h3 class="mb-3 text-primary">Información de Menores de Edad</h3>
+                            @if($encargados->madre)
+                            <p><strong>Nombre de la Madre:</strong> <span>{{ old('madre')??$encargados->madre}}</span></p>
+                            <p><strong>Ocupacion de la Madre:</strong> <span>{{ old('ocupacion_madre')??$encargados->ocupacion_madre}}</span></p>
+                            @endif
+                            @if($encargados->padre)
+                            <p><strong>Nombre del Padre:</strong> <span>{{ old('padre')??$encargados->padre}}</span></p>
+                            <p><strong>Ocupacion del Padre:</strong> <span>{{ old('ocupacion_padre')??$encargados->ocupacion_padre}}</span></p>
+                            @endif
+                        </div>
+                        @endif
+                        @if(!is_null($estudia))
+                        <div class="timeline-post">
+                            <h3 class="mb-3 text-primary">Información Escolar</h3>
+                            <p><strong>Nombre de la Institución:</strong> <span>{{ old('nombre')??$estudia->nombre}}</span></p>
+                            <p><strong>Grado que cursa:</strong> <span>{{ old('grado')??$estudia->grado}}</span></p>
+                            @if($paciente->carrera)
+                            <p><strong>Carrera:</strong> {{ old('carrera')??$paciente->carrera}}</p>
+                            @endif
+                        </div>
+                        @endif
 
                     </div>
                     <div class="tab-pane fade" id="user-settings">

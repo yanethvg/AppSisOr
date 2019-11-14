@@ -22,6 +22,7 @@ class Paciente extends Model
     }
 
     public function syncTelefonos($telefonos){
+
         $telefonosInstances=[];
         foreach ($telefonos as $telefono) {
             array_push($telefonosInstances,  new Telefono(['telefono'=>$telefono]));
