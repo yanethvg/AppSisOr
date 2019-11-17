@@ -30,5 +30,11 @@ class Paciente extends Model
         $this->telefonos()->saveMany($telefonosInstances);
 
     }
+    public function diagnostico(){
+        return $this->hasOne(Diagnostico::class);
+    }
+    public function citas(){
+        return $this->hasMany(Cita::class);
+    }
 
 }
