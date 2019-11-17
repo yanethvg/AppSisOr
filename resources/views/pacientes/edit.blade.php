@@ -20,7 +20,7 @@ Editar Expediente
             <div class="tile-body">
                     <form  method="POST" action="{{ route('pacientes.update',$paciente->id) }}">
                     <input type="hidden" name="_method" value="PUT">
-					<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"> <!--Seguridad Otorgada por blade -->
+                    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"> <!--Seguridad Otorgada por blade -->
                     <div class="card border-primary mb-3">
                             <div class="card-header text-white bg-primary">Datos Personales</div>
                             <div class="card-body ">
@@ -28,28 +28,47 @@ Editar Expediente
                                             <label class="control-label">Nombre Completo</label>
                                             <input class="form-control" type="text" name="nombre"  value="{{ old('nombre')??$paciente->nombre}}">
 
+                                            @if ($errors->has('nombre'))
+                                            <span class="help-block text-danger">
+                                                <strong>{{ $errors->first('nombre') }}</strong>
+                                            </span>
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">Dirección</label>
                                             <textarea class="form-control
                                             " rows="4" name="direccion">{{ old('direccion')??$paciente->direccion}}</textarea>
+                                            @if ($errors->has('direccion'))
+                                            <span class="help-block text-danger">
+                                                <strong>{{ $errors->first('direccion') }}</strong>
+                                            </span>
+                                            @endif
                                         </div>
                                         <div class="form-group">
+
                                             <label class="control-label">Telefono</label>
                                             <div class="row" id="telefono">
                                                 @if(count($telefonos) == 1)
                                                 <div class="col-lg-4  col-md-12 d-flex">
-                                                    <input class="form-control mr-2" type="text" name="telefono[]" value="{{ old('$telefonos[0]->telefono')??$telefonos[0]->telefono}}" >
+                                                    <input class="form-control mr-2" type="text" name="telefono[]" value="{{ old('$telefonos[0]->telefono')??$telefonos[0]->telefono}}" required >
+
                                                 </div>
                                                 <div class="col-lg-4  col-md-12 d-flex">
                                                         <input class="form-control mr-2" type="text" name="telefono[]"  >
+
                                                 </div>
                                                 <div class="col-lg-4  col-md-12 d-flex">
                                                         <input class="form-control mr-2" type="text" name="telefono[]"  >
+                                                        @if ($errors->has('telefono.min'))
+                                                        <span class="help-block text-danger">
+                                                            <strong>{{ $errors->first('telefono.min') }}</strong>
+                                                        </span>
+                                                        @endif
                                                 </div>
+
                                                 @elseif(count($telefonos) == 2)
                                                 <div class="col-lg-4  col-md-12 d-flex">
-                                                        <input class="form-control mr-2" type="text" name="telefono[]" value="{{ old('$telefonos[0]->telefono')??$telefonos[0]->telefono}}" >
+                                                        <input class="form-control mr-2" type="text" name="telefono[]" value="{{ old('$telefonos[0]->telefono')??$telefonos[0]->telefono}}" required>
                                                 </div>
                                                 <div class="col-lg-4  col-md-12 d-flex">
                                                         <input class="form-control mr-2" type="text" name="telefono[]" value="{{ old('$telefonos[1]->telefono')??$telefonos[1]->telefono}}" >
@@ -57,9 +76,10 @@ Editar Expediente
                                                 <div class="col-lg-4  col-md-12 d-flex">
                                                         <input class="form-control mr-2" type="text" name="telefono[]"  >
                                                 </div>
+
                                                 @else
                                                 <div class="col-lg-4  col-md-12 d-flex">
-                                                        <input class="form-control mr-2" type="text" name="telefono[]" value="{{ old('$telefonos[0]->telefono')??$telefonos[0]->telefono}}" >
+                                                        <input class="form-control mr-2" type="text" name="telefono[]" value="{{ old('$telefonos[0]->telefono')??$telefonos[0]->telefono}}" required >
                                                 </div>
                                                 <div class="col-lg-4  col-md-12 d-flex">
                                                         <input class="form-control mr-2" type="text" name="telefono[]" value="{{ old('$telefonos[1]->telefono')??$telefonos[1]->telefono}}" >
@@ -67,20 +87,25 @@ Editar Expediente
                                                 <div class="col-lg-4  col-md-12 d-flex">
                                                         <input class="form-control mr-2" type="text" name="telefono[]" value="{{ old('$telefonos[2]->telefono')??$telefonos[2]->telefono}}" >
                                                 </div>
+
                                                 @endif
+
                                             </div>
+
                                         </div>
 
                                     <div class="form-group" id="validacionFecha">
                                         <div class="row">
                                             <div class="col-6">
                                                 <label class="control-label">Fecha de Nacimiento</label>
-                                                <input class="form-control" type="date" name="fecha_nacimiento" id="fecha_nacimiento" value="{{ old('fecha_nacimiento')??$paciente->fecha_nacimiento}}">
+                                                <input class="form-control" type="date" name="fecha_nacimiento" id="fecha_nacimiento" value="{{ old('fecha_nacimiento')??$paciente->fecha_nacimiento}}" required>
+
                                             </div>
                                             <div class="col-6">
                                                 <label class="control-label">Edad</label>
                                                 <input class="form-control" type="text" disabled="disabled" id="edad"  value="{{ old('edad')??$edad}}">
                                             </div>
+
                                         </div>
 
                                     </div>
@@ -88,11 +113,20 @@ Editar Expediente
                                         <label class="control-label">Padecimiento</label>
                                         <textarea class="form-control
                                         " rows="4" name="padecimiento" placeholder="Ingrese Padecimiento">{{ old('padecimiento')??$paciente->padecimiento}}</textarea>
-
+                                        @if ($errors->has('padecimiento'))
+                                        <span class="help-block text-danger">
+                                            <strong>{{ $errors->first('padecimiento') }}</strong>
+                                        </span>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Recomendación</label>
                                         <input class="form-control" type="text" name="recomendacion" placeholder="Ingrese Recomendación"  value="{{ old('recomendacion')??$paciente->recomendacion}}">
+                                        @if ($errors->has('recomendacion'))
+                                        <span class="help-block text-danger">
+                                            <strong>{{ $errors->first('recomendacion') }}</strong>
+                                        </span>
+                                        @endif
                                     </div>
                             </div>
                         </div>
@@ -107,7 +141,11 @@ Editar Expediente
                                                 @else
                                                 <input class="form-control" type="text" name="nombre_institucion" placeholder="Ingrese Nombre de Institución" >
                                                  @endif
-
+                                                 @if ($errors->has('nombre_institucion'))
+                                                 <span class="help-block text-danger">
+                                                     <strong>{{ $errors->first('nombre_institucion') }}</strong>
+                                                 </span>
+                                                 @endif
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label">Grado</label>
@@ -116,7 +154,11 @@ Editar Expediente
                                                 @else
                                                 <input class="form-control" type="text" name="grado" placeholder="Ingrese el Grado Academico">
                                                 @endif
-
+                                                @if ($errors->has('grado'))
+                                                <span class="help-block text-danger">
+                                                    <strong>{{ $errors->first('grado') }}</strong>
+                                                </span>
+                                                @endif
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label">Carrera</label>
@@ -125,7 +167,11 @@ Editar Expediente
                                                  @else
                                                  <input class="form-control" type="text" name="carrera" placeholder="Ingrese la carrera" >
                                                 @endif
-
+                                                @if ($errors->has('carrera'))
+                                                <span class="help-block text-danger">
+                                                    <strong>{{ $errors->first('carrera') }}</strong>
+                                                </span>
+                                                @endif
                                             </div>
                                     </div>
                             </div>
@@ -139,12 +185,21 @@ Editar Expediente
                                             <label class="control-label">Dirección de Trabajo</label>
                                             <textarea class="form-control
                                             " rows="4" name="direccion_trabajo" placeholder="Ingrese la Dirección de Trabajo">{{ old('direccion_trabajo')??$paciente->direccion_trabajo}}</textarea>
+                                            @if ($errors->has('direccion_trabajo'))
+                                            <span class="help-block text-danger">
+                                                <strong>{{ $errors->first('direccion_trabajo') }}</strong>
+                                            </span>
+                                            @endif
 
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">Profesión</label>
                                             <input class="form-control" type="text" name="profesion" placeholder="Ingrese la Profesión"  value="{{ old('profesion')??$paciente->profesion}}">
-
+                                            @if ($errors->has('profesion'))
+                                            <span class="help-block text-danger">
+                                                <strong>{{ $errors->first('profesion') }}</strong>
+                                            </span>
+                                            @endif
                                         </div>
                                 </div>
                         </div>
@@ -159,10 +214,16 @@ Editar Expediente
                                                     <label class="control-label">Nombre de la Madre</label>
                                                     @if($encargados)
                                                     <input class="form-control"type="text" name="madre" placeholder="Ingrese el nombre de la madre" value="{{ old('profesion')??$encargados->madre}}">
+
                                                     @else
                                                     <input class="form-control"type="text" name="madre" placeholder="Ingrese el nombre de la madre" >
-                                                    @endif
 
+                                                    @endif
+                                                    @if ($errors->has('madre'))
+                                                    <span class="help-block text-danger">
+                                                        <strong>{{ $errors->first('madre') }}</strong>
+                                                    </span>
+                                                    @endif
                                                 </div>
                                                 <div class="col-lg-6 col-md-12">
                                                         <label class="control-label">Ocupacion de la Madre</label>
@@ -171,7 +232,11 @@ Editar Expediente
                                                         @else
                                                         <input class="form-control"type="text" name="ocupacion_madre" placeholder="Ingrese la ocupación de la madre" >
                                                         @endif
-
+                                                        @if ($errors->has('ocupacion_madre'))
+                                                        <span class="help-block text-danger">
+                                                            <strong>{{ $errors->first('ocupacion_madre') }}</strong>
+                                                        </span>
+                                                        @endif
                                                 </div>
                                             </div>
                                     </div>
@@ -184,7 +249,11 @@ Editar Expediente
                                                     @else
                                                     <input class="form-control"type="text" name="padre" placeholder="Ingrese el nombre del padre" >
                                                     @endif
-
+                                                    @if ($errors->has('padre'))
+                                                    <span class="help-block text-danger">
+                                                        <strong>{{ $errors->first('padre') }}</strong>
+                                                    </span>
+                                                    @endif
                                                 </div>
                                                 <div class="col-lg-6 col-md-12">
                                                         <label class="control-label">Ocupacion de la Madre</label>
@@ -193,7 +262,11 @@ Editar Expediente
                                                         @else
                                                         <input class="form-control"type="text" name="ocupacion_padre" placeholder="Ingrese la ocupación del padre" >
                                                         @endif
-
+                                                        @if ($errors->has('ocupacion_padre'))
+                                                        <span class="help-block text-danger">
+                                                            <strong>{{ $errors->first('ocupacion_padre') }}</strong>
+                                                        </span>
+                                                        @endif
                                                 </div>
                                             </div>
                                     </div>

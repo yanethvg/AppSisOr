@@ -27,10 +27,9 @@ class PacienteRequestUpdate extends FormRequest
             'nombre'=>'required|string',
             'direccion'=>'required|string',
             'telefono' => 'required|array|min:1|max:3',
-            'telefono.*'=>'required|string|distinct|min:9',
-            'padecimiento'=>'required',
+            'padecimiento'=>'required|string',
             'recomendacion' => 'nullable|string',
-            'fechaNacimiento' => 'required|before_or_equal:today',
+            'fecha_nacimiento' => 'required|before_or_equal:today',
             'direccion_trabajo' => 'nullable|string|max:70',
             'profesion' => 'nullable|string|max:30',
             'carrera' => 'nullable|string|max:50',
@@ -49,11 +48,12 @@ class PacienteRequestUpdate extends FormRequest
         return [
             'telefono.min' => 'Debe existir al menos un numero de contacto',
             'telefono.max' => 'Debe existir menos de tres numeros de contacto',
-            'telefono.*.distinct'=>'No debe contener telefonos duplicados',
             'telefono.*.min'=>'La longitud del numero celular debe ser de 9 digitos incluyendo - (guion)',
+            'fecha_nacimiento.required' => 'La fecha de nacimiento es requerida',
+            'fecha_nacimiento.before_or_equal' => 'La fecha de nacimiento es imposible. Esta fecha es del futuro',
             'madre.max' => 'El nombre de la madre de tener menos de 51 caracteres',
             'padre.max' => 'El nombre de la padre de tener menos de 51 caracteres',
-            'ocupacon_madre.max' => 'La ocupación de la madre de tener menos de 51 caracteres',
+            'ocupacion_madre.max' => 'La ocupación de la madre de tener menos de 51 caracteres',
             'ocupacion_padre.max' =>'La ocupación de el padre de tener menos de 51 caracteres',
             'direccion_trabajo.max' => 'La dirección de trabajo de tener menos de 71 caracteres',
             'profesion.max' => 'La profesión debe de tener menos de 31 caracteres',
@@ -61,7 +61,6 @@ class PacienteRequestUpdate extends FormRequest
             'grado.max' => 'La dirección de trabajo de tener menos de 21 caracteres',
             'nombre_institucion.max' => 'El nombre de la institución de tener menos de 71 caracteres',
             'telefono.*.required'=>'No se ha digitado al menos un numero de telefono, si no quiere introducir uno elimine el campo'
-
         ];
     }
 }

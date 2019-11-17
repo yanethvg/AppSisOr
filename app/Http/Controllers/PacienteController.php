@@ -92,7 +92,7 @@ class PacienteController extends Controller
         $edad = Carbon::parse($paciente->fecha_nacimiento)->age;
         return view('pacientes.edit',compact('paciente','telefonos','encargados','estudia','edad'));
     }
-    public function update(Request $request, $id)
+    public function update(PacienteRequestUpdate $request, $id)
     {
         $paciente = Paciente::findOrFail($id);
         $paciente->nombre = $request->nombre;
