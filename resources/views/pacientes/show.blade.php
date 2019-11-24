@@ -23,7 +23,7 @@ Ver Expediente
                     <ul class="nav flex-column nav-tabs user-tabs">
                       <li class="nav-item"><a class="nav-link active" href="#detalle-expediente" data-toggle="tab">Detalle Expediente</a></li>
                       <li class="nav-item"><a class="nav-link" href="#user-settings" data-toggle="tab">Citas</a></li>
-                      <li class="nav-item"><a class="nav-link" href="#user-settings" data-toggle="tab">Pagos</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#pagos" data-toggle="tab">Pagos</a></li>
                     </ul>
                   </div>
                 </div>
@@ -126,6 +126,53 @@ Ver Expediente
                         </form>
                       </div>
                     </div>
+                    <div class="tab-pane fade" id="pagos">
+                        <div class="timeline-post">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h3 class="mb-3 text-primary">Información Pagos</h3>
+                                <a class="btn btn-outline-success" href=""><i class="fa fa-plus icon-expe"></i>Registrar</a>
+                            </div>
+                            <div class="card border-info mb-3" style="width:100%">
+                                <div class="card-header d-flex justify-content-between ">
+                                    <p>Tratamiento: Ortodoncia</p>
+                                    <div class="botones">
+                                            <a class="btn btn-outline-info mr-2" ><i class="fa fa-pencil icon-expe"></i></a>
+                                            <a class="btn btn-outline-primary mr-2" ><i class="fa fa-eye icon-expe"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                  <p class="card-text">Descripción: Tiene un tratamiento</p>
+                                  <p class="card-text">Total: $ 95.00</p>
+                                </div>
+                            </div>
+                            <div class="card border-info mb-3" style="width:100%">
+                                    <div class="card-header d-flex justify-content-between ">
+                                        <p>Tratamiento: Ortodoncia</p>
+                                        <div class="botones">
+                                                <a class="btn btn-outline-info mr-2" ><i class="fa fa-pencil icon-expe"></i></a>
+                                                <a class="btn btn-outline-primary mr-2" ><i class="fa fa-eye icon-expe"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                      <p class="card-text">Descripción: Tiene un tratamiento</p>
+                                      <p class="card-text">Total: $ 95.00</p>
+                                    </div>
+                            </div>
+                            <div class="card border-info mb-3" style="width:100%">
+                                    <div class="card-header d-flex justify-content-between ">
+                                        <p>Tratamiento: Ortodoncia</p>
+                                        <div class="botones">
+                                                <a class="btn btn-outline-info mr-2" ><i class="fa fa-pencil icon-expe"></i></a>
+                                                <a class="btn btn-outline-primary mr-2" ><i class="fa fa-eye icon-expe"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                      <p class="card-text">Descripción: Tiene un tratamiento</p>
+                                      <p class="card-text">Total: $ 95.00</p>
+                                    </div>
+                            </div>
+                        </div>
+                      </div>
                   </div>
                 </div>
               </div>
