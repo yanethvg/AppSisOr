@@ -18,6 +18,8 @@ class CreateAbonosTable extends Migration
             $table->date('fecha_emision');
             $table->float('monto');
             $table->boolean('esPrima');
+            $table->bigInteger('tratamiento_id')->unsigned();
+            $table->foreign('tratamiento_id')->references('id')->on('plan_tratamientos');
         });
     }
 

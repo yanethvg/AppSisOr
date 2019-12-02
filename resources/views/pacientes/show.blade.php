@@ -128,10 +128,12 @@ Ver Expediente
                     </div>
                     <div class="tab-pane fade" id="pagos">
                         <div class="timeline-post">
+
                             <div class="d-flex justify-content-between mb-3">
                                 <h3 class="mb-3 text-primary">Información Pagos</h3>
                                 <a class="btn btn-outline-success" href=""><i class="fa fa-plus icon-expe"></i>Registrar</a>
                             </div>
+                            <h5 class="mb-3 text-center"> Nombre del paciente: {{ old('nombre')??$paciente->nombre}} </h5>
                             <div class="card border-info mb-3" style="width:100%">
                                 <div class="card-header d-flex justify-content-between ">
                                     <p>Tratamiento: Ortodoncia</p>
