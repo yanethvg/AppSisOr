@@ -29,7 +29,27 @@ new Vue({
                 trabajo: {}
 
         },
-        telefonos:{0:false,1:false}
+        telefonos:{0:false,1:false},
+        antecedente: {
+            saludAnio: false,
+            enfermedadOperacion: false,
+            alergia: false,
+            desmayo: false,
+            sinusitis: false,
+            hepatitis: false,
+            asma: false,
+            artritis: false,
+            diabetes: false,
+            gastritis: false,
+            renal: false,
+            enfermedadVenerea: false,
+            tuberculosis: false,
+            sida: false,
+            presionAlta: false,
+            transtornoSangre: false,
+            tomaMedicamento: false,
+        },
+
     },
     methods: {
         createPaciente: function () {
@@ -105,6 +125,6 @@ new Vue({
                 return;
             }
             this.paciente.estudia={};
-        }
+        },                
     }
 });
