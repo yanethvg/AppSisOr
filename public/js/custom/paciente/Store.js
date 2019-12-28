@@ -97,8 +97,7 @@ new Vue({
                 this.edad = `${data} años`;
                 if( data < 18){
                     this.enableAge=true;
-                    this.paciente.encargados={};
-
+                    this.paciente.encargados={};                    
                 }else if(data >= 18){
                     this.enableAge=false;
                     this.paciente.encargados = null;

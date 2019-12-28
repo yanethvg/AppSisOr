@@ -224,6 +224,7 @@ Crear Expediente
                         <div id="antecedente" class="collapseShow" aria-labelledby="headingOne"
                             data-parent="#accordionExample">
                             <div class="card-body">
+                                <p class="text-center font-weight-bolder">Antecedentes Médicos</p>
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group text-center">
@@ -414,10 +415,106 @@ Crear Expediente
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <div class="form-group" v-if="antecedente.tomaMedicamento">
+                                        <div class="form-group" v-if="antecedente.tomaMedicamento">                                            
                                             <label for="consumeMedicamento">Cuál o cuáles medicamentos consume?</label>
                                             <textarea id="consumeMedicamento" class="form-control"
                                                 name="consumeMedicamento" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center"> La información que he proporcionado es verdadera y me comprometo a reportar
+                                    cualquier cambio de mi estado de salud y/o uso de medicamentos
+                                </p>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="nombreEncargado">Nombre:</label>
+                                            <input class="form-control" type="text" name="nombreEncargado" id="nombreEncargado">
+                                        </div>
+                                    </div>
+                                    <div class="col" v-if="!enableAge">
+                                        <div class="form-group">
+                                            <label for="documentoUnico">DUI:</label>
+                                            <input class="form-control" type="text" name="documentoUnico" id="documentoUnico">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" v-if="enableAge">
+                                    <div class="col">
+                                            <div class="form-group">
+                                                <label for="parentesco">Parentesco:</label>
+                                                <input class="form-control" type="text" name="parentesco" id="parentesco">
+                                            </div>
+                                    </div>
+                                </div>
+                                <p class="text-center font-weight-bolder">Antecedentes Odontologicos</p>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="chequeoDental">Hace cuanto tiempo se hizo el último chequeo dental:</label>
+                                            <input class="form-control" type="text" name="chequeoDental" id="chequeoDental">                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="accidente">Ha tenido algún accidente que involucre sus dientes, boca o cara?</label>
+                                            <input class="form-control" type="text" name="accidente" id="accidente">                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="habito">Tiene algún hábito que involucre sus dientes o boca?:</label>
+                                            <input class="form-control" type="text" name="habito" id="habito">                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center font-weight-bolder">Antecedentes Médicos</p>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group text-center">
+                                            <p>Esta es mi primer visita a un ortodoncista?</p>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="primerVisita"
+                                                    value="true" >SI
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="primerVisita"
+                                                    value="false">NO
+                                            </label>
+                                        </div>
+                                        <div class="form-group text-center">
+                                            <p>Ya he tenido contacto con otro ortodoncista pero quiero una segunda opinion</p>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="segundaOpinion"
+                                                    value="true" >SI
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="segundaOpinion"
+                                                    value="false">NO
+                                            </label>
+                                        </div>
+                                        <div class="form-group text-center">
+                                            <p>Ya tuve anteriormente un tratamiento de ortodoncia</p>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="tratamientoAnterior"
+                                                    value="true" >SI
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="tratamientoAnterior"
+                                                    value="false">NO
+                                            </label>
+                                        </div>
+                                        <div class="form-group text-center">
+                                            <p>Hay otros miembros de su familia que presetan un problema similar?</p>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="problemaFamiliar"
+                                                    value="true" >SI
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="problemaFamiliar"
+                                                    value="false">NO
+                                            </label>
+                                        </div>
+                                        <div class="form-group text-center">
+                                            <label for="esperaDeTratamiento">Qué espera del tratamiento de ortodoncia?</label>
+                                            <textarea id="esperaDeTratamiento" class="form-control"
+                                                name="esperaDeTratamiento" rows="3"></textarea>
                                         </div>
                                     </div>
                                 </div>
