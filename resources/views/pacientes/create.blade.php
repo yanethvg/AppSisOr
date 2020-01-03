@@ -221,7 +221,7 @@ Crear Expediente
                             </h2>
                         </div>
 
-                        <div id="antecedente" class="collapseShow" aria-labelledby="headingOne"
+                        <div id="antecedente" class="collapse" aria-labelledby="headingOne"
                             data-parent="#accordionExample">
                             <div class="card-body">
                                 <p class="text-center font-weight-bolder">Antecedentes Médicos</p>
@@ -230,10 +230,10 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Ha habido un cambio grave en su estado de salud en el último año?</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="saludAnio" v-model="antecedente.saludAnio" :value="true">SI
+                                                <input type="radio" name="saludAnio" v-model="antecedente.medico.saludAnio" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="saludAnio" v-model="antecedente.saludAnio" :value="false">NO
+                                                <input type="radio" name="saludAnio" v-model="antecedente.medico.saludAnio" :value="false">NO
                                             </label>
                                         </div>
                                     </div>
@@ -244,11 +244,11 @@ Crear Expediente
                                             <p>Ha tenido alguna vez alguna enfermedad u operación grave?</p>
                                             <label class="radio-inline">
                                                 <input type="radio" name="enfermedadOperacion"
-                                                    v-model="antecedente.enfermedadOperacion" :value="true">SI
+                                                    v-model="antecedente.medico.enfermedadOperacion" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
                                                 <input type="radio" name="enfermedadOperacion"
-                                                    v-model="antecedente.enfermedadOperacion" :value="false">NO
+                                                    v-model="antecedente.medico.enfermedadOperacion" :value="false">NO
                                             </label>
                                             <div class="form-group" v-if="antecedente.enfermedadOperacion">
                                                 <label for="consistioEnfermadad">En qué consistió la enfermedad u
@@ -265,17 +265,17 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Alergia</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="alergia" v-model="antecedente.alergia" :value="true">SI
+                                                <input type="radio" name="alergia" v-model="antecedente.medico.alergia" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="alergia" v-model="antecedente.alergia" :value="false">NO
+                                                <input type="radio" name="alergia" v-model="antecedente.medico.alergia" :value="false">NO
                                             </label>
                                             <p>Desmayos</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="desmayo" v-model="antecedente.desmayo" :value="true">SI
+                                                <input type="radio" name="desmayo" v-model="antecedente.medico.desmayo" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="desmayo" v-model="antecedente.desmayo" :value="false">NO
+                                                <input type="radio" name="desmayo" v-model="antecedente.medico.desmayo" :value="false">NO
                                             </label>
                                         </div>
                                     </div>
@@ -283,20 +283,20 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Sinusitis</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="sinusitis" v-model="antecedente.sinusitis"
+                                                <input type="radio" name="sinusitis" v-model="antecedente.medico.sinusitis"
                                                     :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="sinusitis" v-model="antecedente.sinusitis"
+                                                <input type="radio" name="sinusitis" v-model="antecedente.medico.sinusitis"
                                                     :value="false">NO
                                             </label>
                                             <p>Hepatitis</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="hepatitis" v-model="antecedente.hepatitis"
+                                                <input type="radio" name="hepatitis" v-model="antecedente.medico.hepatitis"
                                                     :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="hepatitis" v-model="antecedente.hepatitis"
+                                                <input type="radio" name="hepatitis" v-model="antecedente.medico.hepatitis"
                                                     :value="false">NO
                                             </label>
                                         </div>
@@ -305,17 +305,17 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Asma</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="asma" v-model="antecedente.asma" :value="true">SI
+                                                <input type="radio" name="asma" v-model="antecedente.medico.asma" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="asma" v-model="antecedente.asma" :value="false">NO
+                                                <input type="radio" name="asma" v-model="antecedente.medico.asma" :value="false">NO
                                             </label>
                                             <p>Artritis</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="artritis" v-model="antecedente.artritis" :value="true">SI
+                                                <input type="radio" name="artritis" v-model="antecedente.medico.artritis" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="artritis" v-model="antecedente.artritis" :value="false">NO
+                                                <input type="radio" name="artritis" v-model="antecedente.medico.artritis" :value="false">NO
                                             </label>
                                         </div>
                                     </div>
@@ -323,18 +323,18 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Diabetes</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="diabetes" v-model="antecedente.diabetes" :value="true">SI
+                                                <input type="radio" name="diabetes" v-model="antecedente.medico.diabetes" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="diabetes" v-model="antecedente.diabetes" :value="false">NO
+                                                <input type="radio" name="diabetes" v-model="antecedente.medico.diabetes" :value="false">NO
                                             </label>
                                             <p>Gastritis</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="gastritis" v-model="antecedente.gastritis"
+                                                <input type="radio" name="gastritis" v-model="antecedente.medico.gastritis"
                                                     :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="gastritis" v-model="antecedente.gastritis"
+                                                <input type="radio" name="gastritis" v-model="antecedente.medico.gastritis"
                                                     :value="false">NO
                                             </label>
                                         </div>
@@ -345,18 +345,18 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Transtornos Renales</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="renal" v-model="antecedente.renal" :value="true">SI
+                                                <input type="radio" name="renal" v-model="antecedente.medico.renal" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="renal" v-model="antecedente.renal" :value="false">NO
+                                                <input type="radio" name="renal" v-model="antecedente.medico.renal" :value="false">NO
                                             </label>
                                             <p>Enfermedades Venéreas</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="enfermedadVenerea" v-model="antecedente.enfermedadVenerea"
+                                                <input type="radio" name="enfermedadVenerea" v-model="antecedente.medico.enfermedadVenerea"
                                                     :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="enfermedadVenerea" v-model="antecedente.enfermedadVenerea"
+                                                <input type="radio" name="enfermedadVenerea" v-model="antecedente.medico.enfermedadVenerea"
                                                     :value="false">NO
                                             </label>
                                         </div>
@@ -365,19 +365,19 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Tuberculosis</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="tuberculosis" v-model="antecedente.tuberculosis"
+                                                <input type="radio" name="tuberculosis" v-model="antecedente.medico.tuberculosis"
                                                     :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="tuberculosis" v-model="antecedente.tuberculosis"
+                                                <input type="radio" name="tuberculosis" v-model="antecedente.medico.tuberculosis"
                                                     :value="false">NO
                                             </label>
                                             <p>SIDA</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="sida" v-model="antecedente.sida" :value="true">SI
+                                                <input type="radio" name="sida" v-model="antecedente.medico.sida" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="sida" v-model="antecedente.sida" :value="false">NO
+                                                <input type="radio" name="sida" v-model="antecedente.medico.sida" :value="false">NO
                                             </label>
                                         </div>
                                     </div>
@@ -385,29 +385,29 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Presion Sanguinea Alta</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="presionAlta" v-model="antecedente.presionAlta"
+                                                <input type="radio" name="presionAlta" v-model="antecedente.medico.presionAlta"
                                                     :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="presionAlta" v-model="antecedente.presionAlta"
+                                                <input type="radio" name="presionAlta" v-model="antecedente.medico.presionAlta"
                                                     :value="false">NO
                                             </label>
                                             <p>Transtornos de sangre</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="transtornoSangre" v-model="antecedente.transtornoSangre"
+                                                <input type="radio" name="transtornoSangre" v-model="antecedente.medico.transtornoSangre"
                                                     :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="transtornoSangre" v-model="antecedente.transtornoSangre"
+                                                <input type="radio" name="transtornoSangre" v-model="antecedente.medico.transtornoSangre"
                                                     :value="false">NO
                                             </label>
                                             <p>Toma algun medicamento</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="tomaMedicamento" v-model="antecedente.tomaMedicamento"
+                                                <input type="radio" name="tomaMedicamento" v-model="antecedente.medico.tomaMedicamento"
                                                     :value="true" >SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="tomaMedicamento" v-model="antecedente.tomaMedicamento"
+                                                <input type="radio" name="tomaMedicamento" v-model="antecedente.medico.tomaMedicamento"
                                                     :value="false">NO
                                             </label>
                                         </div>
@@ -415,9 +415,9 @@ Crear Expediente
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <div class="form-group" v-if="antecedente.tomaMedicamento">                                            
+                                        <div class="form-group" v-if="antecedente.medico.tomaMedicamento">                                            
                                             <label for="consumeMedicamento">Cuál o cuáles medicamentos consume?</label>
-                                            <textarea id="consumeMedicamento" class="form-control"
+                                            <textarea id="consumeMedicamento" class="form-control" v-model="antecedente.medico.consumeMedicamento"
                                                 name="consumeMedicamento" rows="3"></textarea>
                                         </div>
                                     </div>
@@ -452,68 +452,68 @@ Crear Expediente
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="chequeoDental">Hace cuanto tiempo se hizo el último chequeo dental:</label>
-                                            <input class="form-control" type="text" name="chequeoDental" id="chequeoDental">                                            
+                                            <input class="form-control" type="text" name="chequeoDental" id="chequeoDental" v-model="antecedente.odontologico.chequeoDental">                                            
                                         </div>
                                         <div class="form-group">
                                             <label for="accidente">Ha tenido algún accidente que involucre sus dientes, boca o cara?</label>
-                                            <input class="form-control" type="text" name="accidente" id="accidente">                                            
+                                            <input class="form-control" type="text" name="accidente" id="accidente" v-model="antecedente.odontologico.accidente">                                            
                                         </div>
                                         <div class="form-group">
                                             <label for="habito">Tiene algún hábito que involucre sus dientes o boca?:</label>
-                                            <input class="form-control" type="text" name="habito" id="habito">                                            
+                                            <input class="form-control" type="text" name="habito" id="habito" v-model="antecedente.odontologico.habito">                                            
                                         </div>
                                     </div>
                                 </div>
-                                <p class="text-center font-weight-bolder">Antecedentes Médicos</p>
+                                <p class="text-center font-weight-bolder">Antecedentes Ortodoncicos</p>
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group text-center">
                                             <p>Esta es mi primer visita a un ortodoncista?</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="primerVisita"
-                                                    value="true" >SI
+                                                <input type="radio" name="primerVisita" v-model="antecedente.ortodoncico.primerVisita"
+                                                    :value="true" >SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="primerVisita"
-                                                    value="false">NO
+                                                <input type="radio" name="primerVisita" v-model="antecedente.ortodoncico.primerVisita"
+                                                    :value="false">NO
                                             </label>
                                         </div>
                                         <div class="form-group text-center">
                                             <p>Ya he tenido contacto con otro ortodoncista pero quiero una segunda opinion</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="segundaOpinion"
-                                                    value="true" >SI
+                                                <input type="radio" name="segundaOpinion" v-model="antecedente.ortodoncico.segundaOpinion"
+                                                    :value="true" >SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="segundaOpinion"
-                                                    value="false">NO
+                                                <input type="radio" name="segundaOpinion" v-model="antecedente.ortodoncico.segundaOpinion"
+                                                    :value="false">NO
                                             </label>
                                         </div>
                                         <div class="form-group text-center">
                                             <p>Ya tuve anteriormente un tratamiento de ortodoncia</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="tratamientoAnterior"
-                                                    value="true" >SI
+                                                <input type="radio" name="tratamientoAnterior" v-model="antecedente.ortodoncico.tratamientoAnterior"
+                                                    :value="true" >SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="tratamientoAnterior"
-                                                    value="false">NO
+                                                <input type="radio" name="tratamientoAnterior" v-model="antecedente.ortodoncico.tratamientoAnterior"
+                                                    :value="false">NO
                                             </label>
                                         </div>
                                         <div class="form-group text-center">
                                             <p>Hay otros miembros de su familia que presetan un problema similar?</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="problemaFamiliar"
-                                                    value="true" >SI
+                                                <input type="radio" name="problemaFamiliar" v-model="antecedente.ortodoncico.problemaFamiliar"
+                                                    :value="true" >SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="problemaFamiliar"
-                                                    value="false">NO
+                                                <input type="radio" name="problemaFamiliar" v-model="antecedente.ortodoncico.problemaFamiliar"
+                                                    :value="false">NO
                                             </label>
                                         </div>
                                         <div class="form-group text-center">
                                             <label for="esperaDeTratamiento">Qué espera del tratamiento de ortodoncia?</label>
-                                            <textarea id="esperaDeTratamiento" class="form-control"
+                                            <textarea id="esperaDeTratamiento" class="form-control" v-model="antecedente.ortodoncico.esperaDeTratamiento"
                                                 name="esperaDeTratamiento" rows="3"></textarea>
                                         </div>
                                     </div>
