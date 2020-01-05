@@ -11,7 +11,41 @@ new Vue({
             fechaNacimiento: '',
             encargados: null,
             estudia: null,
-            trabajo: null
+            trabajo: null,
+            antecedente: {
+                medico: {
+                    saludAnio: false,
+                    enfermedadOperacion: false,
+                    alergia: false,
+                    desmayo: false,
+                    sinusitis: false,
+                    hepatitis: false,
+                    asma: false,
+                    artritis: false,
+                    diabetes: false,
+                    gastritis: false,
+                    renal: false,
+                    enfermedadVenerea: false,
+                    tuberculosis: false,
+                    sida: false,
+                    presionAlta: false,
+                    transtornoSangre: false,
+                    tomaMedicamento: false,
+                    consumeMedicamento: null,
+                },
+                odontologico: {
+                    chequeoDental: "",
+                    accidente: "",
+                    habito: "",
+                },
+                ortodoncico:{
+                    primerVisita: false,
+                    segundaOpinion: false,
+                    tratamientoAnterior: false,
+                    problemaFamiliar: false,
+                    esperaDeTratamiento: "",
+                }
+            }
         },
         edad:null,
         enableAge: false,
@@ -30,55 +64,23 @@ new Vue({
 
         },
         telefonos:{0:false,1:false},
-        antecedente: {
-            medico: {
-                saludAnio: false,
-                enfermedadOperacion: false,
-                alergia: false,
-                desmayo: false,
-                sinusitis: false,
-                hepatitis: false,
-                asma: false,
-                artritis: false,
-                diabetes: false,
-                gastritis: false,
-                renal: false,
-                enfermedadVenerea: false,
-                tuberculosis: false,
-                sida: false,
-                presionAlta: false,
-                transtornoSangre: false,
-                tomaMedicamento: false,
-                consumeMedicamento: null,
-            },
-            odontologico: {
-                chequeoDental: "",
-                accidente: "",
-                habito: "",
-            },
-            ortodoncico:{
-                primerVisita: false,
-                segundaOpinion: false,
-                tratamientoAnterior: false,
-                problemaFamiliar: false,
-                esperaDeTratamiento: "",
-            }
-        },
-
     },
+    
+   
     methods: {
         createPaciente: function () {
             axios.post('/pacientes', this.paciente)
                 .then(response => {
                     this.errors = {};
-                    toastr.success(response.data.respuesta);
+                    console.log(response.data.respuesta);
+                    toastr.success(response.data.respuesta);                    
                     setTimeout(() => {
                         window.location.href='/pacientes';
                     },1000)
                 })
                 .catch(error => {
                     this.errors = error.response.data.errors;
-                    console.log(this.errors['telefono.0']);
+                    console.log(this.paciente);
                 });
         }
         ,

@@ -13,7 +13,7 @@ $factory->define(AntecedenteOrtodoncico::class, function (Faker $faker) {
         'problemaFamiliar' => $faker->boolean(),
         'segundaOpinion'=> $faker->boolean(),
         'tratamientoAnterior'=> $faker->boolean(),
-        'esperaDeTratamiento' => $faker->regexify('[A-Za-z]{20}'),  
+        'esperaDeTratamiento' => $faker->text($maxNbChars = 50),  
         'paciente_id' => $number++,
     ];
 });

@@ -12,7 +12,7 @@ $factory->define(AntecedenteMedico::class, function (Faker $faker) {
         'alergia' => $faker->boolean(),
         'artritis'=> $faker->boolean(),
         'asma'=> $faker->boolean(),
-        'consumeMedicamento'=> $faker->regexify('[A-Za-z]{20}'),
+        'consumeMedicamento'=> $faker->text($maxNbChars = 50),
         'desmayo'=> $faker->boolean(),
         'diabetes'=> $faker->boolean(),
         'enfermedadOperacion'=> $faker->boolean(),

@@ -9,9 +9,9 @@ use Faker\Generator as Faker;
 $factory->define(AntecedenteOdontologico::class, function (Faker $faker) {
     static $number = 1;
     return [
-        'accidente' => $faker->regexify('[A-Za-z]{20}'),
-        'chequeDental' => $faker->regexify('[A-Za-z]{20}'),
-        'habito' => $faker->regexify('[A-Za-z]{20}'), 
+        'accidente' => $faker->text($maxNbChars = 50),
+        'chequeDental' => $faker->text($maxNbChars = 50),
+        'habito' => $faker->text($maxNbChars = 50), 
         'paciente_id' => $number++,
     ];
 });
