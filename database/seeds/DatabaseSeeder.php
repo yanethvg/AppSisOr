@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
       $this->call(AntecedenteMedicoSeeder::class);
       $this->call(AntecedenteOdontologicoSeeder::class);
       $this->call(AntecedenteOrtodoncicoSeeder::class);
+      $this->call(DiagnosticoPrevioSeeder::class);
     }
 }

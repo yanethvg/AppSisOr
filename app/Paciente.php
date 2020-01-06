@@ -42,6 +42,9 @@ class Paciente extends Model
     public function diagnostico(){
         return $this->hasOne(Diagnostico::class);
     }
+    public function diagnosticoPrevio(){
+        return $this->hasOne(DiagnosticoPrevio::class);
+    }
     public function citas(){
         return $this->hasMany(Cita::class);
     }

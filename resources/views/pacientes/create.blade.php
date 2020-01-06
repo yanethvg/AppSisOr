@@ -531,11 +531,24 @@ Crear Expediente
                                 </button>
                             </h2>
                         </div>
-
                         <div id="diagnosticoPrevio" class="collapse" aria-labelledby="headingOne"
                             data-parent="#accordionExample">
                             <div class="card-body">
-
+                                <div class="form-group text-center">
+                                    <label for="descripcionDiagnostico">Diagnostico</label>
+                                    <textarea id="descripcionDiagnostico" class="form-control" v-model="paciente.diagnosticoPrevio.descripcionDiagnostico"
+                                        name="descripcionDiagnostico" rows="3"></textarea>
+                                </div>
+                                <div class="form-group text-center">
+                                    <label for="planDeTratamiento">Plan de Tratamiento</label>
+                                    <textarea id="planDeTratamiento" class="form-control" v-model="paciente.diagnosticoPrevio.planDeTratamiento"
+                                        name="planDeTratamiento" rows="3"></textarea>
+                                </div>
+                                <div class="form-group text-center">
+                                    <label for="necesidadOdontologica">Necesidades Odontologicas?</label>
+                                    <textarea id="necesidadOdontologica" class="form-control" v-model="paciente.diagnosticoPrevio.necesidadOdontologica"
+                                        name="necesidadOdontologica" rows="3"></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -45,6 +45,11 @@ new Vue({
                     problemaFamiliar: false,
                     esperaDeTratamiento: "",
                 }
+            },
+            diagnosticoPrevio: {
+                descripcionDiagnostico: '',
+                planDeTratamiento: '',
+                necesidadOdontologica: '',
             }
         },
         edad:null,
@@ -79,8 +84,7 @@ new Vue({
                     },1000)
                 })
                 .catch(error => {
-                    this.errors = error.response.data.errors;
-                    console.log(this.paciente);
+                    this.errors = error.response.data.errors;                    
                 });
         }
         ,

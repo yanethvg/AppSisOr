@@ -193,6 +193,12 @@ Ver Expediente
           @endif
           </div>
           @endif 
+          <div class="timeline-post">
+            <h3 class="mb-3 text-primary">Diagnostico Previo</h3>            
+            <p><strong>Descripción de Diagnostico</strong> <span>{{$diagnostico_previo->descripcion}}</span></p>
+            <p><strong>Posible Tratamiento</strong> <span>{{$diagnostico_previo->posible_tratamiento}}</span></p>
+            <p><strong>Necesidades </strong> <span>{{$diagnostico_previo->necesidades_odontologicas}}</span></p>
+          </div>
         </div>
         <div class="tab-pane fade" id="user-settings">
           <div class="tile user-settings">

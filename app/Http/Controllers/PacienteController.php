@@ -14,6 +14,7 @@ use App\Telefono;
 use App\AntecedenteMedico;
 use App\AntecedenteOdontologico;
 use App\AntecedenteOrtodoncico;
+use App\DiagnosticoPrevio;
 use Carbon\Carbon;
 
 
@@ -122,7 +123,14 @@ class PacienteController extends Controller
         $paciente->antecedenteOdontologico()->save($antecedente_odontologico);
         $paciente->antecedenteOrtodoncico()->save($antecedente_ortodoncico);
 
-        return response()->json(['respuesta' => $antecedente]);
+        /****** Diagnostico Previo******/
+        $diagnostico_previo = new DiagnosticoPrevio;
+        $diagnostico_previo->descripcion = $request->diagnosticoPrevio['descripcionDiagnostico'];
+        $diagnostico_previo->posible_tratamiento = $request->diagnosticoPrevio['planDeTratamiento'];
+        $diagnostico_previo->necesidades_odontologicas = $request->diagnosticoPrevio['necesidadOdontologica'];
+
+        $paciente->diagnosticoPrevio()->save($diagnostico_previo);
+        return response()->json(['respuesta' => 'El paciente fue creado con exito']);
     }
     public function edit($id)
     {
@@ -133,9 +141,10 @@ class PacienteController extends Controller
         $antecedente_medico = $paciente->antecedenteMedico()->get()->first();
         $antecedente_odontologico = $paciente->antecedenteOdontologico()->get()->first();
         $antecedente_ortodoncico = $paciente->antecedenteOrtodoncico()->get()->first();
+        $diagnostico_previo = $paciente->diagnosticoPrevio()->get()->first();
         $edad = Carbon::parse($paciente->fecha_nacimiento)->age;
         return view('pacientes.edit',compact('paciente','telefonos','encargados','estudia','edad','antecedente_medico',
-        'antecedente_odontologico','antecedente_ortodoncico'));
+        'antecedente_odontologico','antecedente_ortodoncico','diagnostico_previo'));
     }
     public function update(PacienteRequestUpdate $request, $id)
     {
@@ -217,6 +226,13 @@ class PacienteController extends Controller
         $antecedente_ortodoncico->esperaDeTratamiento = $request->esperaDeTratamiento;
         $paciente->antecedenteOrtodoncico()->save($antecedente_ortodoncico);
 
+        //Diagnostico Previo
+        $diagnostico_previo_actual = DiagnosticoPrevio::where('paciente_id',$id)->delete();
+        $diagnostico_previo = new DiagnosticoPrevio;
+        $diagnostico_previo->descripcion = $request->descripcionDiagnostico;
+        $diagnostico_previo->posible_tratamiento = $request->planDeTratamiento;
+        $diagnostico_previo->necesidades_odontologicas = $request->necesidadOdontologica;
+        $paciente->diagnosticoPrevio()->save($diagnostico_previo);
         return redirect('/pacientes')->with(['msj' => 'Paciente modificado con exito ']);
 
     }
@@ -229,9 +245,11 @@ class PacienteController extends Controller
         $antecedente_medico = $paciente->antecedenteMedico()->get()->first();
         $antecedente_odontologico = $paciente->antecedenteOdontologico()->get()->first();
         $antecedente_ortodoncico = $paciente->antecedenteOrtodoncico()->get()->first();
+        $diagnostico_previo = $paciente->diagnosticoPrevio()->get()->first();
+
         //dd($estudia);
         $edad = Carbon::parse($paciente->fecha_nacimiento)->age;
         return view('pacientes.show',compact('paciente','telefonos','encargados','estudia','edad','antecedente_medico', 'antecedente_odontologico',
-        'antecedente_ortodoncico'));
+        'antecedente_ortodoncico', 'diagnostico_previo'));
     }
 }

@@ -713,7 +713,32 @@ Editar Expediente
                         </div>
                     </div>
                 </div>
-
+                <div class="card border-primary mb-3">
+                    <div class="card-header text-white bg-primary">Diagnostico</div>
+                    <div class="card-body ">                        
+                        <div class="form-group ">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group text-center">
+                                        <label for="descripcionDiagnostico">Descripcion del Diagnostico</label>
+                                        <textarea id="descripcionDiagnostico" class="form-control" name="descripcionDiagnostico"
+                                            rows="3">{{$diagnostico_previo->descripcion }}</textarea>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <label for="planDeTratamiento">Plan de tratamiento</label>
+                                        <textarea id="planDeTratamiento" class="form-control" name="planDeTratamiento"
+                                            rows="3">{{$diagnostico_previo->posible_tratamiento }}</textarea>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <label for="necesidadOdontologica">Descripcion del Diagnostico</label>
+                                        <textarea id="necesidadOdontologica" class="form-control" name="necesidadOdontologica"
+                                            rows="3">{{$diagnostico_previo->necesidades_odontologicas }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <button class="btn btn-primary btn-block" type="submit"><i
                         class="fa fa-fw fa-lg fa-check-circle"></i>Guardar</button>&nbsp;&nbsp;&nbsp;</button>
             </form>
