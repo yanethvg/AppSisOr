@@ -20,9 +20,10 @@ use Carbon\Carbon;
 
 class PacienteController extends Controller
 {
-    public function list(Request $request){
-        $pacientes=Paciente::orderby('id','DESC')
-                ->paginate(5);
+    public function list(Request $request)
+    {
+        $pacientes = Paciente::orderby('id', 'DESC')
+            ->paginate(5);
 
         return [
             'pagination' => [
@@ -51,7 +52,7 @@ class PacienteController extends Controller
         return $edad;
     }
     public function store(PacienteRequest $request)
-    {        
+    {
         $paciente = new Paciente;
         $paciente->nombre = $request->nombre;
         $paciente->fecha_nacimiento = $request->fechaNacimiento;
@@ -66,24 +67,27 @@ class PacienteController extends Controller
         //telefonos
         $paciente->syncTelefonos($request->telefono);
         //estudiantes
-        if($request->estudia){
-        $paciente->institucion()->save(new Institucion(
-            ["carrera" => ($request->estudia["carrera"]??null),
-            "grado" => $request->estudia["grado"],
-            "nombre" => $request->estudia["nombreInstitucion"]]
-        ));
+        if ($request->estudia) {
+            $paciente->institucion()->save(new Institucion(
+                [
+                    "carrera" => ($request->estudia["carrera"] ?? null),
+                    "grado" => $request->estudia["grado"],
+                    "nombre" => $request->estudia["nombreInstitucion"]
+                ]
+            ));
         }
         //encargados
-        if($request->encargados){
-        $paciente->detallesMenorEdad()->save(new DetalleMenorEdad(
-            ["madre" => ($request->encargados["nombreMadre"]??null),
-            "padre" => ($request->encargados["nombrePadre"]??null),
-            "ocupacion_madre" => ($request->encargados["ocupacionMadre"]??null),
-            "ocupacion_padre" => ($request->encargados["ocupacionPadre"]?? null)
-            ]
-        ));
+        if ($request->encargados) {
+            $paciente->detallesMenorEdad()->save(new DetalleMenorEdad(
+                [
+                    "madre" => ($request->encargados["nombreMadre"] ?? null),
+                    "padre" => ($request->encargados["nombrePadre"] ?? null),
+                    "ocupacion_madre" => ($request->encargados["ocupacionMadre"] ?? null),
+                    "ocupacion_padre" => ($request->encargados["ocupacionPadre"] ?? null)
+                ]
+            ));
         }
-        
+
         //*************Antecedentes*************
         $antecedente = $request->input("antecedente");
         //Antecendentes Medicos
@@ -104,13 +108,13 @@ class PacienteController extends Controller
         $antecedente_medico->sida = $antecedente["medico"]["sida"];
         $antecedente_medico->presionAlta = $antecedente["medico"]["presionAlta"];
         $antecedente_medico->transtornoSangre = $antecedente["medico"]["transtornoSangre"];
-        $antecedente_medico->tomaMedicamento = $antecedente["medico"]["tomaMedicamento"];        
-        $antecedente_medico->consumeMedicamento = $antecedente_medico->tomaMedicamento?$antecedente["medico"]["consumeMedicamento"]:null;
+        $antecedente_medico->tomaMedicamento = $antecedente["medico"]["tomaMedicamento"];
+        $antecedente_medico->consumeMedicamento = $antecedente_medico->tomaMedicamento ? $antecedente["medico"]["consumeMedicamento"] : null;
         //Antecedentes Odontologicos
         $antecedente_odontologico = new AntecedenteOdontologico;
         $antecedente_odontologico->chequeDental = $antecedente["odontologico"]["chequeoDental"];
-        $antecedente_odontologico->accidente= $antecedente["odontologico"]["accidente"];
-        $antecedente_odontologico->habito= $antecedente["odontologico"]["habito"];
+        $antecedente_odontologico->accidente = $antecedente["odontologico"]["accidente"];
+        $antecedente_odontologico->habito = $antecedente["odontologico"]["habito"];
         //Antecedentes Ortodoncicos
         $antecedente_ortodoncico = new AntecedenteOrtodoncico;
         $antecedente_ortodoncico->primerVisita = $antecedente["ortodoncico"]["primerVisita"];
@@ -136,15 +140,24 @@ class PacienteController extends Controller
     {
         $paciente = Paciente::findOrFail($id);
         $telefonos = $paciente->telefonos()->get()->all();
-        $encargados=$paciente->detallesMenorEdad()->get()->first();
+        $encargados = $paciente->detallesMenorEdad()->get()->first();
         $estudia = $paciente->institucion()->get()->first();
         $antecedente_medico = $paciente->antecedenteMedico()->get()->first();
         $antecedente_odontologico = $paciente->antecedenteOdontologico()->get()->first();
         $antecedente_ortodoncico = $paciente->antecedenteOrtodoncico()->get()->first();
         $diagnostico_previo = $paciente->diagnosticoPrevio()->get()->first();
         $edad = Carbon::parse($paciente->fecha_nacimiento)->age;
-        return view('pacientes.edit',compact('paciente','telefonos','encargados','estudia','edad','antecedente_medico',
-        'antecedente_odontologico','antecedente_ortodoncico','diagnostico_previo'));
+        return view('pacientes.edit', compact(
+            'paciente',
+            'telefonos',
+            'encargados',
+            'estudia',
+            'edad',
+            'antecedente_medico',
+            'antecedente_odontologico',
+            'antecedente_ortodoncico',
+            'diagnostico_previo'
+        ));
     }
     public function update(PacienteRequestUpdate $request, $id)
     {
@@ -158,35 +171,38 @@ class PacienteController extends Controller
         $paciente->recomendacion = $request->recomendacion;
         $paciente->save();
         //consulta a la base
-        $telefonosConsulta = Telefono::where('paciente_id',$id)->delete();
-        for($i=0 ; $i<3 ;$i++){
-            if(!is_null($request->telefono[$i])){
+        $telefonosConsulta = Telefono::where('paciente_id', $id)->delete();
+        for ($i = 0; $i < 3; $i++) {
+            if (!is_null($request->telefono[$i])) {
                 $telefono = new Telefono;
                 $telefono->telefono = $request->telefono[$i];
                 $telefono->paciente_id = $id;
                 $telefono->save();
             }
         }
-        if($request->grado && $request->nombre_institucion){
-            $institucion= Institucion::where('paciente_id',$id)->delete();
+        if ($request->grado && $request->nombre_institucion) {
+            $institucion = Institucion::where('paciente_id', $id)->delete();
             $paciente->institucion()->save(new Institucion(
-            ["carrera" => ($request->carrera??null),
-            "grado" => $request->grado,
-            "nombre" => $request->nombre_institucion]
-        ));
+                [
+                    "carrera" => ($request->carrera ?? null),
+                    "grado" => $request->grado,
+                    "nombre" => $request->nombre_institucion
+                ]
+            ));
         }
 
-        $menores = DetalleMenorEdad::where('paciente_id',$id)->delete();
+        $menores = DetalleMenorEdad::where('paciente_id', $id)->delete();
         $paciente->detallesMenorEdad()->save(new DetalleMenorEdad(
-            ["madre" => ($request->madre??null),
-            "padre" => ($request->padre??null),
-            "ocupacion_madre" => ($request->ocupacion_madre??null),
-            "ocupacion_padre" => ($request->ocupacion_padre?? null)
+            [
+                "madre" => ($request->madre ?? null),
+                "padre" => ($request->padre ?? null),
+                "ocupacion_madre" => ($request->ocupacion_madre ?? null),
+                "ocupacion_padre" => ($request->ocupacion_padre ?? null)
             ]
         ));
         //***** Antecedentes ******/
         //Antecedente Medico
-        $antecedente_medico_actual = AntecedenteMedico::where('paciente_id',$id)->delete();
+        $antecedente_medico_actual = AntecedenteMedico::where('paciente_id', $id)->delete();
         $antecedente_medico = new AntecedenteMedico;
         $antecedente_medico->saludAnio = $request->saludAnio;
         $antecedente_medico->enfermedadOperacion = $request->enfermedadOperacion;
@@ -209,15 +225,15 @@ class PacienteController extends Controller
         $paciente->antecedenteMedico()->save($antecedente_medico);
 
         //Antecedente Odontologico
-        $antecedente_odontologico_actual = AntecedenteOdontologico::where('paciente_id',$id)->delete();
+        $antecedente_odontologico_actual = AntecedenteOdontologico::where('paciente_id', $id)->delete();
         $antecedente_odontologico = new AntecedenteOdontologico;
         $antecedente_odontologico->chequeDental = $request->chequeoDental;
-        $antecedente_odontologico->accidente= $request->accidente;
-        $antecedente_odontologico->habito= $request->habito;
+        $antecedente_odontologico->accidente = $request->accidente;
+        $antecedente_odontologico->habito = $request->habito;
         $paciente->antecedenteOdontologico()->save($antecedente_odontologico);
 
         //Antecedente Ortodoncio
-        $antecedente_ortodoncico_actual = AntecedenteOrtodoncico::where('paciente_id',$id)->delete();
+        $antecedente_ortodoncico_actual = AntecedenteOrtodoncico::where('paciente_id', $id)->delete();
         $antecedente_ortodoncico = new AntecedenteOrtodoncico;
         $antecedente_ortodoncico->primerVisita = $request->primerVisita;
         $antecedente_ortodoncico->segundaOpinion = $request->segundaOpinion;
@@ -227,20 +243,19 @@ class PacienteController extends Controller
         $paciente->antecedenteOrtodoncico()->save($antecedente_ortodoncico);
 
         //Diagnostico Previo
-        $diagnostico_previo_actual = DiagnosticoPrevio::where('paciente_id',$id)->delete();
+        $diagnostico_previo_actual = DiagnosticoPrevio::where('paciente_id', $id)->delete();
         $diagnostico_previo = new DiagnosticoPrevio;
         $diagnostico_previo->descripcion = $request->descripcionDiagnostico;
         $diagnostico_previo->posible_tratamiento = $request->planDeTratamiento;
         $diagnostico_previo->necesidades_odontologicas = $request->necesidadOdontologica;
         $paciente->diagnosticoPrevio()->save($diagnostico_previo);
         return redirect('/pacientes')->with(['msj' => 'Paciente modificado con exito ']);
-
     }
     public function show($id)
     {
         $paciente = Paciente::findOrFail($id);
         $telefonos = $paciente->telefonos()->get()->all();
-        $encargados=$paciente->detallesMenorEdad()->get()->first();
+        $encargados = $paciente->detallesMenorEdad()->get()->first();
         $estudia = $paciente->institucion()->get()->first();
         $antecedente_medico = $paciente->antecedenteMedico()->get()->first();
         $antecedente_odontologico = $paciente->antecedenteOdontologico()->get()->first();
@@ -249,7 +264,16 @@ class PacienteController extends Controller
 
         //dd($estudia);
         $edad = Carbon::parse($paciente->fecha_nacimiento)->age;
-        return view('pacientes.show',compact('paciente','telefonos','encargados','estudia','edad','antecedente_medico', 'antecedente_odontologico',
-        'antecedente_ortodoncico', 'diagnostico_previo'));
+        return view('pacientes.show', compact(
+            'paciente',
+            'telefonos',
+            'encargados',
+            'estudia',
+            'edad',
+            'antecedente_medico',
+            'antecedente_odontologico',
+            'antecedente_ortodoncico',
+            'diagnostico_previo'
+        ));
     }
 }

@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Telefono extends Model
+class FacialFrontal extends Model
 {
+    protected $table = 'facial_frontal';
     public $timestamps = false;
-    protected $fillable=['telefono'];
     public function paciente(){
         return $this->belongsTo(Paciente::class);
     }

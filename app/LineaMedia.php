@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Telefono extends Model
+class LineaMedia extends Model
 {
+    protected $table = 'lineas_medias';
     public $timestamps = false;
-    protected $fillable=['telefono'];
     public function paciente(){
         return $this->belongsTo(Paciente::class);
     }

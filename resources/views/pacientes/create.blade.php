@@ -230,10 +230,12 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Ha habido un cambio grave en su estado de salud en el último año?</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="saludAnio" v-model="paciente.antecedente.medico.saludAnio" :value="true">SI
+                                                <input type="radio" name="saludAnio"
+                                                    v-model="paciente.antecedente.medico.saludAnio" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="saludAnio" v-model="paciente.antecedente.medico.saludAnio" :value="false">NO
+                                                <input type="radio" name="saludAnio"
+                                                    v-model="paciente.antecedente.medico.saludAnio" :value="false">NO
                                             </label>
                                         </div>
                                     </div>
@@ -244,11 +246,13 @@ Crear Expediente
                                             <p>Ha tenido alguna vez alguna enfermedad u operación grave?</p>
                                             <label class="radio-inline">
                                                 <input type="radio" name="enfermedadOperacion"
-                                                    v-model="paciente.antecedente.medico.enfermedadOperacion" :value="true">SI
+                                                    v-model="paciente.antecedente.medico.enfermedadOperacion"
+                                                    :value="true">SI
                                             </label>
                                             <label class="radio-inline">
                                                 <input type="radio" name="enfermedadOperacion"
-                                                    v-model="paciente.antecedente.medico.enfermedadOperacion" :value="false">NO
+                                                    v-model="paciente.antecedente.medico.enfermedadOperacion"
+                                                    :value="false">NO
                                             </label>
                                             <div class="form-group" v-if="paciente.antecedente.enfermedadOperacion">
                                                 <label for="consistioEnfermadad">En qué consistió la enfermedad u
@@ -265,17 +269,21 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Alergia</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="alergia" v-model="paciente.antecedente.medico.alergia" :value="true">SI
+                                                <input type="radio" name="alergia"
+                                                    v-model="paciente.antecedente.medico.alergia" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="alergia" v-model="paciente.antecedente.medico.alergia" :value="false">NO
+                                                <input type="radio" name="alergia"
+                                                    v-model="paciente.antecedente.medico.alergia" :value="false">NO
                                             </label>
                                             <p>Desmayos</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="desmayo" v-model="paciente.antecedente.medico.desmayo" :value="true">SI
+                                                <input type="radio" name="desmayo"
+                                                    v-model="paciente.antecedente.medico.desmayo" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="desmayo" v-model="paciente.antecedente.medico.desmayo" :value="false">NO
+                                                <input type="radio" name="desmayo"
+                                                    v-model="paciente.antecedente.medico.desmayo" :value="false">NO
                                             </label>
                                         </div>
                                     </div>
@@ -283,21 +291,21 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Sinusitis</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="sinusitis" v-model="paciente.antecedente.medico.sinusitis"
-                                                    :value="true">SI
+                                                <input type="radio" name="sinusitis"
+                                                    v-model="paciente.antecedente.medico.sinusitis" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="sinusitis" v-model="paciente.antecedente.medico.sinusitis"
-                                                    :value="false">NO
+                                                <input type="radio" name="sinusitis"
+                                                    v-model="paciente.antecedente.medico.sinusitis" :value="false">NO
                                             </label>
                                             <p>Hepatitis</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="hepatitis" v-model="paciente.antecedente.medico.hepatitis"
-                                                    :value="true">SI
+                                                <input type="radio" name="hepatitis"
+                                                    v-model="paciente.antecedente.medico.hepatitis" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="hepatitis" v-model="paciente.antecedente.medico.hepatitis"
-                                                    :value="false">NO
+                                                <input type="radio" name="hepatitis"
+                                                    v-model="paciente.antecedente.medico.hepatitis" :value="false">NO
                                             </label>
                                         </div>
                                     </div>
@@ -305,17 +313,21 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Asma</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="asma" v-model="paciente.antecedente.medico.asma" :value="true">SI
+                                                <input type="radio" name="asma"
+                                                    v-model="paciente.antecedente.medico.asma" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="asma" v-model="paciente.antecedente.medico.asma" :value="false">NO
+                                                <input type="radio" name="asma"
+                                                    v-model="paciente.antecedente.medico.asma" :value="false">NO
                                             </label>
                                             <p>Artritis</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="artritis" v-model="paciente.antecedente.medico.artritis" :value="true">SI
+                                                <input type="radio" name="artritis"
+                                                    v-model="paciente.antecedente.medico.artritis" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="artritis" v-model="paciente.antecedente.medico.artritis" :value="false">NO
+                                                <input type="radio" name="artritis"
+                                                    v-model="paciente.antecedente.medico.artritis" :value="false">NO
                                             </label>
                                         </div>
                                     </div>
@@ -323,19 +335,21 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Diabetes</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="diabetes" v-model="paciente.antecedente.medico.diabetes" :value="true">SI
+                                                <input type="radio" name="diabetes"
+                                                    v-model="paciente.antecedente.medico.diabetes" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="diabetes" v-model="paciente.antecedente.medico.diabetes" :value="false">NO
+                                                <input type="radio" name="diabetes"
+                                                    v-model="paciente.antecedente.medico.diabetes" :value="false">NO
                                             </label>
                                             <p>Gastritis</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="gastritis" v-model="paciente.antecedente.medico.gastritis"
-                                                    :value="true">SI
+                                                <input type="radio" name="gastritis"
+                                                    v-model="paciente.antecedente.medico.gastritis" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="gastritis" v-model="paciente.antecedente.medico.gastritis"
-                                                    :value="false">NO
+                                                <input type="radio" name="gastritis"
+                                                    v-model="paciente.antecedente.medico.gastritis" :value="false">NO
                                             </label>
                                         </div>
                                     </div>
@@ -345,18 +359,22 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Transtornos Renales</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="renal" v-model="paciente.antecedente.medico.renal" :value="true">SI
+                                                <input type="radio" name="renal"
+                                                    v-model="paciente.antecedente.medico.renal" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="renal" v-model="paciente.antecedente.medico.renal" :value="false">NO
+                                                <input type="radio" name="renal"
+                                                    v-model="paciente.antecedente.medico.renal" :value="false">NO
                                             </label>
                                             <p>Enfermedades Venéreas</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="enfermedadVenerea" v-model="paciente.antecedente.medico.enfermedadVenerea"
+                                                <input type="radio" name="enfermedadVenerea"
+                                                    v-model="paciente.antecedente.medico.enfermedadVenerea"
                                                     :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="enfermedadVenerea" v-model="paciente.antecedente.medico.enfermedadVenerea"
+                                                <input type="radio" name="enfermedadVenerea"
+                                                    v-model="paciente.antecedente.medico.enfermedadVenerea"
                                                     :value="false">NO
                                             </label>
                                         </div>
@@ -365,19 +383,21 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Tuberculosis</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="tuberculosis" v-model="paciente.antecedente.medico.tuberculosis"
-                                                    :value="true">SI
+                                                <input type="radio" name="tuberculosis"
+                                                    v-model="paciente.antecedente.medico.tuberculosis" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="tuberculosis" v-model="paciente.antecedente.medico.tuberculosis"
-                                                    :value="false">NO
+                                                <input type="radio" name="tuberculosis"
+                                                    v-model="paciente.antecedente.medico.tuberculosis" :value="false">NO
                                             </label>
                                             <p>SIDA</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="sida" v-model="paciente.antecedente.medico.sida" :value="true">SI
+                                                <input type="radio" name="sida"
+                                                    v-model="paciente.antecedente.medico.sida" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="sida" v-model="paciente.antecedente.medico.sida" :value="false">NO
+                                                <input type="radio" name="sida"
+                                                    v-model="paciente.antecedente.medico.sida" :value="false">NO
                                             </label>
                                         </div>
                                     </div>
@@ -385,29 +405,33 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Presion Sanguinea Alta</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="presionAlta" v-model="paciente.antecedente.medico.presionAlta"
-                                                    :value="true">SI
+                                                <input type="radio" name="presionAlta"
+                                                    v-model="paciente.antecedente.medico.presionAlta" :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="presionAlta" v-model="paciente.antecedente.medico.presionAlta"
-                                                    :value="false">NO
+                                                <input type="radio" name="presionAlta"
+                                                    v-model="paciente.antecedente.medico.presionAlta" :value="false">NO
                                             </label>
                                             <p>Transtornos de sangre</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="transtornoSangre" v-model="paciente.antecedente.medico.transtornoSangre"
+                                                <input type="radio" name="transtornoSangre"
+                                                    v-model="paciente.antecedente.medico.transtornoSangre"
                                                     :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="transtornoSangre" v-model="paciente.antecedente.medico.transtornoSangre"
+                                                <input type="radio" name="transtornoSangre"
+                                                    v-model="paciente.antecedente.medico.transtornoSangre"
                                                     :value="false">NO
                                             </label>
                                             <p>Toma algun medicamento</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="tomaMedicamento" v-model="paciente.antecedente.medico.tomaMedicamento"
-                                                    :value="true" >SI
+                                                <input type="radio" name="tomaMedicamento"
+                                                    v-model="paciente.antecedente.medico.tomaMedicamento"
+                                                    :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="tomaMedicamento" v-model="paciente.antecedente.medico.tomaMedicamento"
+                                                <input type="radio" name="tomaMedicamento"
+                                                    v-model="paciente.antecedente.medico.tomaMedicamento"
                                                     :value="false">NO
                                             </label>
                                         </div>
@@ -415,52 +439,63 @@ Crear Expediente
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <div class="form-group" v-if="paciente.antecedente.medico.tomaMedicamento">                                            
+                                        <div class="form-group" v-if="paciente.antecedente.medico.tomaMedicamento">
                                             <label for="consumeMedicamento">Cuál o cuáles medicamentos consume?</label>
-                                            <textarea id="consumeMedicamento" class="form-control" v-model="paciente.antecedente.medico.consumeMedicamento"
+                                            <textarea id="consumeMedicamento" class="form-control"
+                                                v-model="paciente.antecedente.medico.consumeMedicamento"
                                                 name="consumeMedicamento" rows="3"></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <p class="text-center"> La información que he proporcionado es verdadera y me comprometo a reportar
+                                <p class="text-center"> La información que he proporcionado es verdadera y me comprometo
+                                    a reportar
                                     cualquier cambio de mi estado de salud y/o uso de medicamentos
                                 </p>
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="nombreEncargado">Nombre:</label>
-                                            <input class="form-control" type="text" name="nombreEncargado" id="nombreEncargado">
+                                            <input class="form-control" type="text" name="nombreEncargado"
+                                                id="nombreEncargado">
                                         </div>
                                     </div>
                                     <div class="col" v-if="!enableAge">
                                         <div class="form-group">
                                             <label for="documentoUnico">DUI:</label>
-                                            <input class="form-control" type="text" name="documentoUnico" id="documentoUnico">
+                                            <input class="form-control" type="text" name="documentoUnico"
+                                                id="documentoUnico">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row" v-if="enableAge">
                                     <div class="col">
-                                            <div class="form-group">
-                                                <label for="parentesco">Parentesco:</label>
-                                                <input class="form-control" type="text" name="parentesco" id="parentesco">
-                                            </div>
+                                        <div class="form-group">
+                                            <label for="parentesco">Parentesco:</label>
+                                            <input class="form-control" type="text" name="parentesco" id="parentesco">
+                                        </div>
                                     </div>
                                 </div>
                                 <p class="text-center font-weight-bolder">Antecedentes Odontologicos</p>
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="chequeoDental">Hace cuanto tiempo se hizo el último chequeo dental:</label>
-                                            <input class="form-control" type="text" name="chequeoDental" id="chequeoDental" v-model="paciente.antecedente.odontologico.chequeoDental">                                            
+                                            <label for="chequeoDental">Hace cuanto tiempo se hizo el último chequeo
+                                                dental:</label>
+                                            <input class="form-control" type="text" name="chequeoDental"
+                                                id="chequeoDental"
+                                                v-model="paciente.antecedente.odontologico.chequeoDental">
                                         </div>
                                         <div class="form-group">
-                                            <label for="accidente">Ha tenido algún accidente que involucre sus dientes, boca o cara?</label>
-                                            <input class="form-control" type="text" name="accidente" id="accidente" v-model="paciente.antecedente.odontologico.accidente">                                            
+                                            <label for="accidente">Ha tenido algún accidente que involucre sus dientes,
+                                                boca o cara?</label>
+                                            <input class="form-control" type="text" name="accidente" id="accidente"
+                                                v-model="paciente.antecedente.odontologico.accidente">
                                         </div>
                                         <div class="form-group">
-                                            <label for="habito">Tiene algún hábito que involucre sus dientes o boca?:</label>
-                                            <input class="form-control" type="text" name="habito" id="habito" v-model="paciente.antecedente.odontologico.habito">                                            
+                                            <label for="habito">Tiene algún hábito que involucre sus dientes o
+                                                boca?:</label>
+                                            <input class="form-control" type="text" name="habito" id="habito"
+                                                v-model="paciente.antecedente.odontologico.habito">
                                         </div>
                                     </div>
                                 </div>
@@ -470,50 +505,61 @@ Crear Expediente
                                         <div class="form-group text-center">
                                             <p>Esta es mi primer visita a un ortodoncista?</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="primerVisita" v-model="paciente.antecedente.ortodoncico.primerVisita"
-                                                    :value="true" >SI
+                                                <input type="radio" name="primerVisita"
+                                                    v-model="paciente.antecedente.ortodoncico.primerVisita"
+                                                    :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="primerVisita" v-model="paciente.antecedente.ortodoncico.primerVisita"
+                                                <input type="radio" name="primerVisita"
+                                                    v-model="paciente.antecedente.ortodoncico.primerVisita"
                                                     :value="false">NO
                                             </label>
                                         </div>
                                         <div class="form-group text-center">
-                                            <p>Ya he tenido contacto con otro ortodoncista pero quiero una segunda opinion</p>
+                                            <p>Ya he tenido contacto con otro ortodoncista pero quiero una segunda
+                                                opinion</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="segundaOpinion" v-model="paciente.antecedente.ortodoncico.segundaOpinion"
-                                                    :value="true" >SI
+                                                <input type="radio" name="segundaOpinion"
+                                                    v-model="paciente.antecedente.ortodoncico.segundaOpinion"
+                                                    :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="segundaOpinion" v-model="paciente.antecedente.ortodoncico.segundaOpinion"
+                                                <input type="radio" name="segundaOpinion"
+                                                    v-model="paciente.antecedente.ortodoncico.segundaOpinion"
                                                     :value="false">NO
                                             </label>
                                         </div>
                                         <div class="form-group text-center">
                                             <p>Ya tuve anteriormente un tratamiento de ortodoncia</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="tratamientoAnterior" v-model="paciente.antecedente.ortodoncico.tratamientoAnterior"
-                                                    :value="true" >SI
+                                                <input type="radio" name="tratamientoAnterior"
+                                                    v-model="paciente.antecedente.ortodoncico.tratamientoAnterior"
+                                                    :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="tratamientoAnterior" v-model="paciente.antecedente.ortodoncico.tratamientoAnterior"
+                                                <input type="radio" name="tratamientoAnterior"
+                                                    v-model="paciente.antecedente.ortodoncico.tratamientoAnterior"
                                                     :value="false">NO
                                             </label>
                                         </div>
                                         <div class="form-group text-center">
                                             <p>Hay otros miembros de su familia que presetan un problema similar?</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="problemaFamiliar" v-model="paciente.antecedente.ortodoncico.problemaFamiliar"
-                                                    :value="true" >SI
+                                                <input type="radio" name="problemaFamiliar"
+                                                    v-model="paciente.antecedente.ortodoncico.problemaFamiliar"
+                                                    :value="true">SI
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="problemaFamiliar" v-model="paciente.antecedente.ortodoncico.problemaFamiliar"
+                                                <input type="radio" name="problemaFamiliar"
+                                                    v-model="paciente.antecedente.ortodoncico.problemaFamiliar"
                                                     :value="false">NO
                                             </label>
                                         </div>
                                         <div class="form-group text-center">
-                                            <label for="esperaDeTratamiento">Qué espera del tratamiento de ortodoncia?</label>
-                                            <textarea id="esperaDeTratamiento" class="form-control" v-model="paciente.antecedente.ortodoncico.esperaDeTratamiento"
+                                            <label for="esperaDeTratamiento">Qué espera del tratamiento de
+                                                ortodoncia?</label>
+                                            <textarea id="esperaDeTratamiento" class="form-control"
+                                                v-model="paciente.antecedente.ortodoncico.esperaDeTratamiento"
                                                 name="esperaDeTratamiento" rows="3"></textarea>
                                         </div>
                                     </div>
@@ -536,18 +582,538 @@ Crear Expediente
                             <div class="card-body">
                                 <div class="form-group text-center">
                                     <label for="descripcionDiagnostico">Diagnostico</label>
-                                    <textarea id="descripcionDiagnostico" class="form-control" v-model="paciente.diagnosticoPrevio.descripcionDiagnostico"
+                                    <textarea id="descripcionDiagnostico" class="form-control"
+                                        v-model="paciente.diagnosticoPrevio.descripcionDiagnostico"
                                         name="descripcionDiagnostico" rows="3"></textarea>
                                 </div>
                                 <div class="form-group text-center">
                                     <label for="planDeTratamiento">Plan de Tratamiento</label>
-                                    <textarea id="planDeTratamiento" class="form-control" v-model="paciente.diagnosticoPrevio.planDeTratamiento"
-                                        name="planDeTratamiento" rows="3"></textarea>
+                                    <textarea id="planDeTratamiento" class="form-control"
+                                        v-model="paciente.diagnosticoPrevio.planDeTratamiento" name="planDeTratamiento"
+                                        rows="3"></textarea>
                                 </div>
                                 <div class="form-group text-center">
                                     <label for="necesidadOdontologica">Necesidades Odontologicas?</label>
-                                    <textarea id="necesidadOdontologica" class="form-control" v-model="paciente.diagnosticoPrevio.necesidadOdontologica"
+                                    <textarea id="necesidadOdontologica" class="form-control"
+                                        v-model="paciente.diagnosticoPrevio.necesidadOdontologica"
                                         name="necesidadOdontologica" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header text-center" id="headingThree">
+                            <h2 class="mb-0">
+                                <button class="btn" type="button" data-toggle="collapse"
+                                    data-target="#fichaDeOrtodoncia" aria-expanded="false"
+                                    aria-controls="fichaDeOrtodoncia">
+                                    Ficha Ortodoncica
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="fichaDeOrtodoncia" class="collapse show" aria-labelledby="headingThree"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <p class="text-center font-weight-bold">Facial Frontal</p>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold"
+                                                    for="facialFrontal">Facial Frontal</label>
+                                            </div>
+                                            <select class="custom-select" id="facialFrontal" name="facialFrontal">
+                                                <option selected>Seleccionar</option>
+                                                <option value="dolicofacial">Dolicofacial</option>
+                                                <option value="mesofacial">Mesofacial</option>
+                                                <option value="branquifacial">Branquifacial</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold">Tercios</label>
+                                            </div>
+                                            <select class="custom-select" id="primerTercio" name="primerTercio">
+                                                <option selected>0</option>
+                                                <option v-for="i in 100" :value="i" :label="i"></option>
+                                            </select>
+                                            <select class="custom-select" id="segundoTercio" name="segundoTercio">
+                                                <option selected>0</option>
+                                                <option v-for="i in 100" :value="i" :label="i"></option>
+                                            </select>
+                                            <select class="custom-select" id="tercerTercio" name="tercerTercio">
+                                                <option selected>0</option>
+                                                <option v-for="i in 100" :value="i" :label="i"></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-4">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold"
+                                                    for="simetria">Simetria</label>
+                                            </div>
+                                            <select class="custom-select" id="simetria" name="simetria">
+                                                <option selected>Seleccionar</option>
+                                                <option value="true">Si</option>
+                                                <option value="false">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold"
+                                                    for="sonrisa">Sonrisa</label>
+                                            </div>
+                                            <select class="custom-select" id="sonrisa" name="sonrisa">
+                                                <option selected>Seleccionar</option>
+                                                <option value="dental">Dental</option>
+                                                <option value="ginvival">Ginvival</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold"
+                                                    for="competencia">Competencia</label>
+                                            </div>
+                                            <select class="custom-select" id="competencia" name="competencia">
+                                                <option selected>Seleccionar</option>
+                                                <option value="true">Si</option>
+                                                <option value="false">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center font-weight-bold">Perfil</p>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold"
+                                                    for="perfilSuperior">Perfil Superior</label>
+                                            </div>
+                                            <select class="custom-select" id="perfilSuperior" name="perfilSuperior">
+                                                <option selected>Seleccionar</option>
+                                                <option value="ortognatico">Ortognático</option>
+                                                <option value="divAnte">Div. Ante.</option>
+                                                <option value="divPost">Div. Post.</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold"
+                                                    for="perfilInferior">Perfil Inferior</label>
+                                            </div>
+                                            <select class="custom-select" id="perfilInferior" name="perfilInferior">
+                                                <option selected>Seleccionar</option>
+                                                <option value="recto">Recto</option>
+                                                <option value="concavo">Concavo</option>
+                                                <option value="convexo">Convexo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-4">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold"
+                                                    for="anguloNasolabial">Ángulo Nasolabial</label>
+                                            </div>
+                                            <select class="custom-select" id="anguloNasolabial" name="anguloNasolabial">
+                                                <option selected>Seleccionar</option>
+                                                <option value="normal">Normal</option>
+                                                <option value="aumentado">Aumentado</option>
+                                                <option value="distanciado">Distanciado</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold"
+                                                    for="nariz">Nariz</label>
+                                            </div>
+                                            <select class="custom-select" id="nariz" name="nariz">
+                                                <option selected>Seleccionar</option>
+                                                <option value="normal">Normal</option>
+                                                <option value="grande">Grande</option>
+                                                <option value="pequeña">pequeña</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold"
+                                                    for="labios">Labios</label>
+                                            </div>
+                                            <select class="custom-select" id="labios" name="labios">
+                                                <option selected>Seleccionar</option>
+                                                <option value="competente">Competente</option>
+                                                <option value="incompetente">Incompetente</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center font-weight-bold">Tejidos Intraorales</p>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group text-center">
+                                            <label for="">Inspección</label>
+                                            <textarea name="" class="form-control" id="" cols="30" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group text-center">
+                                            <label for="">Palpación</label>
+                                            <textarea name="" class="form-control" id="" cols="20" rows="3"></textarea>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group text-center">
+                                            <label for="">Encías</label>
+                                            <textarea name="" class="form-control" id="" cols="30" rows="3"></textarea>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group text-center">
+                                            <label for="">Frenillos</label>
+                                            <textarea name="" class="form-control" id="" cols="30" rows="3"></textarea>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <p class="text-center font-weight-bold">Dentición</p>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold"
+                                                    for="">Dentición</label>
+                                            </div>
+                                            <select class="custom-select" id="" name="">
+                                                <option selected>Seleccionar</option>
+                                                <option value="">Primario</option>
+                                                <option value="">Mixto</option>
+                                                <option value="">Permanente</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group text-center">
+                                            <label for="">Faltantes</label>
+                                            <textarea class="form-control" name="" id="" cols="30" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center font-weight-bold">Lineas Medias</p>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold" for="">Mx</label>
+                                            </div>
+                                            <select class="custom-select" id="lineaMX" name="lineaMx" v-model="lineaMx">
+                                                <option :value="true" selected>Normal</option>
+                                                <option :value="false">Desviado</option>
+                                            </select>
+                                            <select class="custom-select" id="" name="" v-if="!lineaMx">
+                                                <option value="izquierda" selected>Izquierda</option>
+                                                <option value="derecha">Derecha</option>
+                                            </select>
+                                            <input type="number" class="form-control" name="" id="" v-if="!lineaMx"
+                                                placeholder="En milimetro">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold" for="">Md</label>
+                                            </div>
+                                            <select class="custom-select" id="lineaMd" name="lineaMd" v-model="lineaMd">
+                                                <option :value="true" selected>Normal</option>
+                                                <option :value="false">Desviado</option>
+                                            </select>
+                                            <select class="custom-select" id="" name="" v-if="!lineaMd">
+                                                <option value="izquierda" selected>Izquierda</option>
+                                                <option value="derecha">Derecha</option>
+                                            </select>
+                                            <input type="number" class="form-control" name="" id="" v-if="!lineaMd"
+                                                placeholder="En milimetro">
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center font-weight-bold">Sobremordidas</p>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Horizontal</span>
+                                            </div>
+                                            <input type="number" class="form-control" placeholder="mm" min="0" max="10">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold" for="">Vertical</label>
+                                            </div>
+                                            <select class="custom-select">
+                                                <option value="1/3" selected>1/3</option>
+                                                <option value="2/3">2/3</option>
+                                                <option value="3/3">3/3</option>
+                                                <option value="profunda">Profunda</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center font-weight-bold">Mordidas cruzadas</p>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="">Mordidas cruzadas</label>
+                                            <textarea class="form-control" name="" id="" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center font-weight-bold">Relaciones Sagitales</p>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold" for="">Molar
+                                                    Derecha</label>
+                                            </div>
+                                            <select class="custom-select">
+                                                <option value="claseI" selected>Clase I</option>
+                                                <option value="claseII">Clase II</option>
+                                                <option value="claseIII">Clase III</option>
+                                                <option value="c.c">C.C</option>
+                                                <option value="n.e">N.E</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold" for="">Molar
+                                                    Izquierda</label>
+                                            </div>
+                                            <select class="custom-select">
+                                                <option value="claseI" selected>Clase I</option>
+                                                <option value="claseII">Clase II</option>
+                                                <option value="claseIII">Clase III</option>
+                                                <option value="c.c">C.C</option>
+                                                <option value="n.e">N.E</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold" for="">Canina
+                                                    Izquierda</label>
+                                            </div>
+                                            <select class="custom-select">
+                                                <option value="claseI" selected>Clase I</option>
+                                                <option value="claseII">Clase II</option>
+                                                <option value="claseIII">Clase III</option>
+                                                <option value="c.c">C.C</option>
+                                                <option value="n.e">N.E</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text font-weight-bold" for="">Canina
+                                                    Izquierda</label>
+                                            </div>
+                                            <select class="custom-select">
+                                                <option value="claseI" selected>Clase I</option>
+                                                <option value="claseII">Clase II</option>
+                                                <option value="claseIII">Clase III</option>
+                                                <option value="c.c">C.C</option>
+                                                <option value="n.e">N.E</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center font-weight-bold">Analisis de espacio y discrepancia</p>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Longitud de Arco Maxilar:</label>
+                                            <input type="number" class="form-control" name="" id=""
+                                                placeholder="Valor en mm" v-model="paciente.arcoMaxilar">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Longitud de Arco Mandibular:</label>
+                                            <input type="number" class="form-control" name="" id=""
+                                                placeholder="Valor en mm" v-model="paciente.arcoMandibular">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-3">
+                                        <p class="text-center font-weight-bold">Maxilar Derecho</p>
+                                        <table class="table table-bordered table-hover">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th class="text-center">Diente</th>
+                                                    <th class="text-center">Medida</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="diente in paciente.dientesMaxilarDerecho">
+                                                    <td> <span v-text="diente.nombre"></span></td>
+                                                    <td>
+                                                        <input type="number" class="form-control" :name="diente.nombre"
+                                                            :id="diente.nombre" v-model.number="diente.valor"
+                                                            placeholder="Valor en mm">
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p class="text-center">Total <span class="font-weight-bold"
+                                                v-text="totalSumMaxilarDerecho"></span></p>
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <p class="text-center font-weight-bold">Maxilar Izquierdo</p>
+                                        <table class="table table-bordered table-hover">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th class="text-center">Diente</th>
+                                                    <th class="text-center">Medida</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="diente in paciente.dientesMaxilarIzquierdo">
+                                                    <td> <span v-text="diente.nombre"></span></td>
+                                                    <td>
+                                                        <input type="number" class="form-control" :name="diente.nombre"
+                                                            :id="diente.nombre" placeholder="Valor en mm"
+                                                            v-model.number="diente.valor">
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p class="text-center">Total <span class="font-weight-bold"
+                                                v-text="totalSumMaxilarIzquierdo"></span></p>
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <p class="text-center font-weight-bold">Mandibula Derecha</p>
+                                        <table class="table table-bordered table-hover">
+                                            <thead class="thead-dark ">
+                                                <tr>
+                                                    <th class="text-center">Diente</th>
+                                                    <th class="text-center">Medida</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="diente in paciente.dientesMandibulaDerecho">
+                                                    <td> <span v-text="diente.nombre"></span></td>
+                                                    <td>
+                                                        <input type="number" class="form-control" :name="diente.nombre"
+                                                            :id="diente.nombre" placeholder="Valor en mm"
+                                                            v-model.number="diente.valor">
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p class="text-center">Total <span class="font-weight-bold"
+                                                v-text="totalSumMandibulaDerecho"></span></p>
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <p class="text-center font-weight-bold">Mandibula Izquierda</p>
+                                        <table class="table table-bordered table-hover">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th class="text-center">Diente</th>
+                                                    <th class="text-center">Medida</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="diente in paciente.dientesMandibulaIzquierdo">
+                                                    <td> <span v-text="diente.nombre"></span></td>
+                                                    <td>
+                                                        <input type="number" class="form-control" :name="diente.nombre"
+                                                            :id="diente.nombre" placeholder="Valor en mm"
+                                                            v-model.number="diente.valor">
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p class="text-center">Total <span class="font-weight-bold"
+                                                v-text="totalSumMandibulaIzquierdo"></span></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p class="text-center font-weight-bold">Total en el Maxilar: <span
+                                                v-text="maxilar"></span></p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="text-center font-weight-bold">Total en la Mandibula: <span
+                                                v-text="mandibula"></span></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <p class="text-center font-weight-bold">Maxilar: <span
+                                                v-text="totalArcoMaxilar > 0 ? 'Exceso':'Deficiencia' "></span></p>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <p class="text-center font-weight-bold">Mandibula: <span
+                                                v-text="totalArcoMandibular> 0 ? 'Exceso':'Deficiencia'"></span></p>
+                                    </div>
+                                </div>
+                                <p class="text-center font-weight-bold">Bolton Anterior</p>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="text-center">
+                                            El resultado es:
+                                            <span class="font-weight-bold" v-text="resultadoBoltonAnterior"></span>
+                                            <span class="font-weight-bold"
+                                                v-text="resultadoBoltonAnterior < 72.2 ? 'y es menor' : (resultadoBoltonAnterior > 72.2 ? 'y es mayor' : 'y es igual')"></span>
+                                            a 72.2
+                                        </p>
+                                    </div>
+                                </div>
+                                <p class="text-center font-weight-bold">Bolton Total</p>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="text-center">
+                                            El resultado es:
+                                            <span class="font-weight-bold" v-text="resultadoBoltonTotal"></span>
+                                            <span class="font-weight-bold"
+                                                v-text="resultadoBoltonTotal < 91.3 ? 'y es menor' : (resultadoBoltonTotal > 91.3 ? 'y es mayor' : 'y es igual')"></span>
+                                            a 91.3
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -557,7 +1123,6 @@ Crear Expediente
                         class="fa fa-fw fa-lg fa-check-circle"></i>Guardar</button>&nbsp;&nbsp;&nbsp;</button>
             </form>
         </div>
-
     </div>
 </div>
 @endsection

@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Telefono extends Model
+class Discrepancia extends Model
 {
+    protected $table = 'espacio_discrepancia';
     public $timestamps = false;
-    protected $fillable=['telefono'];
     public function paciente(){
         return $this->belongsTo(Paciente::class);
     }
