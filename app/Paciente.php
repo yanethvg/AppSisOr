@@ -72,7 +72,7 @@ class Paciente extends Model
     public function mordida(){
         return $this->hasOne(Mordida::class);
     }
-    
+
     public function relacionSagital(){
         return $this->hasOne(RelacionSagital::class);
     }

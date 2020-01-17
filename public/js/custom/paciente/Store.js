@@ -1,6 +1,5 @@
 const app = new Vue({
     el: "#store",
-
     data: {
         paciente: {
             nombre: "",
@@ -50,6 +49,51 @@ const app = new Vue({
                 descripcionDiagnostico: "",
                 planDeTratamiento: "",
                 necesidadOdontologica: ""
+            },
+            fichaDeOrtodoncia: {
+                facialFrontal: {
+                    frontal: "",
+                    tercios: "",
+                    simetria: "",
+                    sonrisa: "",
+                    competencia: "",
+                },
+                perfil: {
+                    perfilSuperior: "",
+                    perfilInferior: "",
+                    anguloNasolabial: "",
+                    nariz: "",
+                    labios: "",
+                },
+                tejidosIntraorales: {
+                    inspeccion: "",
+                    palpacion: "",
+                    encias: "",
+                    frenillos: "",
+                },
+                denticion: {
+                    denticion: "",
+                    faltantes: "",
+                },
+                lineasMedias: {
+                    lineaMX: "",
+                    lineaMD: "",
+                },
+                mordidas: {
+                    horizontal: "",
+                    vertical: "",
+                    mordidasCruzadas: "",
+                },
+                relacionesSagitales: {
+                    molarDerecha: "",
+                    molarIzquierda: "",
+                    caninaDerecha: "",
+                    caninaIzquierda: "",
+                },
+                espacioDiscrepancia: {
+                    arcoMaxilar: "",
+                    arcoMandibular: "",
+                },
             },
             dientesMaxilarDerecho: [
                 { nombre: "1-1", valor: 0 },
@@ -121,7 +165,11 @@ const app = new Vue({
         },
         telefonos: { 0: false, 1: false },
         lineaMx: true,
-        lineaMd: true
+        lineaMd: true,
+        primerTercio: "",
+        segundoTercio: "",
+        tercerTercio: "",
+
     },
 
     methods: {
@@ -200,6 +248,11 @@ const app = new Vue({
         }
     },
     computed: {
+        unionTercios(){
+            this.paciente.fichaDeOrtodoncia.facialFrontal.tercios = "";
+            this.paciente.fichaDeOrtodoncia.facialFrontal.tercios = this.primerTercio + "-" + this.segundoTercio + "-" + this.tercerTercio;
+            return this.paciente.fichaDeOrtodoncia.facialFrontal.tercios;
+        },
         totalSumMaxilarDerecho() {
             this.paciente.sumMaxilarDerecho = 0;
             this.paciente.dientesMaxilarDerecho.forEach(diente => {
