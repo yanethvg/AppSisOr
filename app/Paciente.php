@@ -89,7 +89,7 @@ class Paciente extends Model
 
         $dientesInstances=[];
         foreach ($dientes as $diente) {
-            array_push($dientesInstances,  new DientesPaciente(['nombre'=>$diente['nombre'], 'medida'=>$diente['medida']]));
+            array_push($dientesInstances,  new DientesPaciente(['nombre'=>$diente['nombre'],'medida'=>$diente['valor']]));
         }
         $this->dientes()->saveMany($dientesInstances);
 

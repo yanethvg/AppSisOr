@@ -15,6 +15,15 @@ use App\AntecedenteMedico;
 use App\AntecedenteOdontologico;
 use App\AntecedenteOrtodoncico;
 use App\DiagnosticoPrevio;
+use App\FacialFrontal;
+use App\PerfilPaciente;
+use App\TejidoIntraoral;
+use App\Denticion;
+use App\LineaMedia;
+use App\Mordida;
+use  App\RelacionSagital;
+use App\Discrepancia;
+use App\DientesPaciente;
 use Carbon\Carbon;
 
 
@@ -139,55 +148,68 @@ class PacienteController extends Controller
         $fichaDeOrtodoncia = $request->input("fichaDeOrtodoncia");
         //Facial frontal
         $facial_frontal = new FacialFrontal;
-        $facial_frontal->facialfrontal = $fichaDeOrtodoncia["facialFrontal"]["frontal"];
+        $facial_frontal->facialFrontal = $fichaDeOrtodoncia["facialFrontal"]["frontal"];
         $facial_frontal->tercios = $fichaDeOrtodoncia["facialFrontal"]["tercios"];
         $facial_frontal->simetria = $fichaDeOrtodoncia["facialFrontal"]["simetria"];
         $facial_frontal->sonrisa = $fichaDeOrtodoncia["facialFrontal"]["sonrisa"];
         $facial_frontal->competencia = $fichaDeOrtodoncia["facialFrontal"]["competencia"];
+        $paciente->facialFrontal()->save($facial_frontal);
         //Perfil
         $perfil_paciente = new PerfilPaciente;
         $perfil_paciente->perfilSuperior = $fichaDeOrtodoncia["perfil"]["perfilSuperior"];
         $perfil_paciente->perfilInferior = $fichaDeOrtodoncia["perfil"]["perfilInferior"];
         $perfil_paciente->anguloNasolabial = $fichaDeOrtodoncia["perfil"]["anguloNasolabial"];
-        $perfil_paciente->nariz = $fichaDeOrtodoncia["perfil"]["nariz"];
+        $perfil_paciente->nariz= $fichaDeOrtodoncia["perfil"]["nariz"];
         $perfil_paciente->labios = $fichaDeOrtodoncia["perfil"]["labios"];
+        $paciente->perfilPaciente()->save($perfil_paciente);
         //Tejidos Intraorales
         $tejidos_intraorales = new TejidoIntraoral;
         $tejidos_intraorales->inspeccion = $fichaDeOrtodoncia["tejidosIntraorales"]["inspeccion"];
         $tejidos_intraorales->palpacion = $fichaDeOrtodoncia["tejidosIntraorales"]["palpacion"];
         $tejidos_intraorales->encias = $fichaDeOrtodoncia["tejidosIntraorales"]["encias"];
         $tejidos_intraorales->frenillos = $fichaDeOrtodoncia["tejidosIntraorales"]["frenillos"];
+        $paciente->tejidoIntraoral()->save($tejidos_intraorales);
         //Denticion
         $denticion = new Denticion;
         $denticion->denticion = $fichaDeOrtodoncia["denticion"]["denticion"];
         $denticion->faltantes = $fichaDeOrtodoncia["denticion"]["faltantes"];
-        //Linea Medias
+        $paciente->denticion()->save($denticion);
+        // //Linea Medias
         $lineas_medias = new LineaMedia;
-        $lineas_medias->lineaMX = $fichaDeOrtodoncia["lineasMedias"]["lineaMX"];
-        $lineas_medias->lineaMD = $fichaDeOrtodoncia["lineasMedias"]["lineaMD"];
+        $lineas_medias->maxilar = $fichaDeOrtodoncia["lineasMedias"]["maxilar"];
+        $lineas_medias->mxDesviado = $fichaDeOrtodoncia["lineasMedias"]["mxDesviado"];
+        $lineas_medias->mxCantidad = $fichaDeOrtodoncia["lineasMedias"]["mxCantidad"];
+        $lineas_medias->mandibula = $fichaDeOrtodoncia["lineasMedias"]["mandibula"];
+        $lineas_medias->mdDesviado = $fichaDeOrtodoncia["lineasMedias"]["mdDesviado"];
+        $lineas_medias->mdCantidad = $fichaDeOrtodoncia["lineasMedias"]["mdCantidad"];
+        $paciente->lineaMedia()->save($lineas_medias);
         //Mordidas
         $mordidas = new Mordida;
-        $mordidas->horizontal = $fichaDeOrtodoncia["mordidas"]["horizontal"];
-        $mordidas->vertical = $fichaDeOrtodoncia["mordidas"]["vertical"];
+        $mordidas->sobreMordidaHorizontal = $fichaDeOrtodoncia["mordidas"]["horizontal"];
+        $mordidas->sobreMordidadVertical = $fichaDeOrtodoncia["mordidas"]["vertical"];
         $mordidas->mordidasCruzadas = $fichaDeOrtodoncia["mordidas"]["mordidasCruzadas"];
+        $paciente->mordida()->save($mordidas);
         //Relaciones Sagitales
         $relaciones_sagitales = new RelacionSagital;
         $relaciones_sagitales->molarDerecha = $fichaDeOrtodoncia["relacionesSagitales"]["molarDerecha"];
         $relaciones_sagitales->molarIzquierda = $fichaDeOrtodoncia["relacionesSagitales"]["molarIzquierda"];
         $relaciones_sagitales->caninaDerecha = $fichaDeOrtodoncia["relacionesSagitales"]["caninaDerecha"];
         $relaciones_sagitales->caninaIzquierda = $fichaDeOrtodoncia["relacionesSagitales"]["caninaIzquierda"];
+        $paciente->relacionSagital()->save($relaciones_sagitales);
         //Analisis de espacio y discrepancia
         $espacio_discrepancia = new Discrepancia;
-        $espacio_discrepancia->arcoMaxilar = $fichaDeOrtodoncia["espacioDiscrepancia"]["arcoMaxilar"];
-        $espacio_discrepancia->arcoMandibular = $fichaDeOrtodoncia["espacioDiscrepancia"]["arcoMandibular"];
-        //Dientes
-        $dientes_paciente = new DientesPaciente;
-        $dientes_paciente->syncDientes($request->dientesMaxilarDerecho);
-        $dientes_paciente->syncDientes($request->dientesMaxilarIzquierdo);
-        $dientes_paciente->syncDientes($request->dientesMandibulaDerecho);
-        $dientes_paciente->syncDientes($request->dientesMandibulaIzquierdo);
+        $espacio_discrepancia->longitudArcoMx = $request->arcoMaxilar;
+        $espacio_discrepancia->longitudArcoMd = $request->arcoMandibular;
+        $espacio_discrepancia->boltonAnterior = $request->boltonAnterior;
+        $espacio_discrepancia->boltonTotal = $request->boltonTotal;
+        $paciente->espacioDiscrepancia()->save($espacio_discrepancia);
+        //Dientes       
+        $paciente->syncDientes($request->dientesMaxilarDerecho);
+        $paciente->syncDientes($request->dientesMaxilarIzquierdo);
+        $paciente->syncDientes($request->dientesMandibulaDerecho);
+        $paciente->syncDientes($request->dientesMandibulaIzquierdo);
 
-        return response()->json(['respuesta' => 'El paciente fue creado con exito']);
+        return response()->json(['respuesta' => 'Paciente Creado con Exito']);
     }
     public function edit($id)
     {
@@ -314,8 +336,14 @@ class PacienteController extends Controller
         $antecedente_odontologico = $paciente->antecedenteOdontologico()->get()->first();
         $antecedente_ortodoncico = $paciente->antecedenteOrtodoncico()->get()->first();
         $diagnostico_previo = $paciente->diagnosticoPrevio()->get()->first();
-
-        //dd($estudia);
+        $facial_frontal = $paciente->facialFrontal()->get()->first();
+        $perfil_paciente = $paciente->perfilPaciente()->get()->first();
+        $tejidos_intraorales = $paciente->tejidoIntraoral()->get()->first();
+        $denticion = $paciente->denticion()->get()->first();
+        $lineas_medias = $paciente->lineaMedia()->get()->first();
+        $mordidas = $paciente->mordida()->get()->first();
+        $relaciones_sagitales = $paciente->relacionSagital()->get()->first();
+        $espacio_discrepancia = $paciente->espacioDiscrepancia()->get()->first();
         $edad = Carbon::parse($paciente->fecha_nacimiento)->age;
         return view('pacientes.show', compact(
             'paciente',
@@ -326,7 +354,15 @@ class PacienteController extends Controller
             'antecedente_medico',
             'antecedente_odontologico',
             'antecedente_ortodoncico',
-            'diagnostico_previo'
+            'diagnostico_previo',
+            'facial_frontal',
+            'perfil_paciente',
+            'tejidos_intraorales',
+            'denticion',
+            'lineas_medias',
+            'mordidas',
+            'relaciones_sagitales',
+            'espacio_discrepancia'
         ));
     }
 }

@@ -16,7 +16,7 @@ class CreateFacialFrontalTable extends Migration
         Schema::create('facial_frontal', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('facialFrontal',15)->nullable();
-            $table->string('tercios',10);
+            $table->string('tercios',12);
             $table->boolean('simetria');
             $table->string('sonrisa',10);
             $table->boolean('competencia');

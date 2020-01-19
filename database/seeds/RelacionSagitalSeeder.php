@@ -11,6 +11,6 @@ class RelacionSagitalSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\RelacionSagital::class,20)->create();
     }
 }

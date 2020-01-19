@@ -126,7 +126,7 @@ Ver Expediente
               </div>
             </div>
             @endif
-        
+
           </div>
           <div class="timeline-post">
             <h3 class="mb-3 text-primary">Antecedentes Odontologicos</h3>
@@ -181,24 +181,96 @@ Ver Expediente
             <p><strong>Nombre del Padre:</strong> <span>{{ old('padre')??$encargados->padre}}</span></p>
             <p><strong>Ocupacion del Padre:</strong>
               <span>{{ old('ocupacion_padre')??$encargados->ocupacion_padre}}</span></p>
-            @endif 
-          @endif
-          @if(!is_null($estudia))
-          <div class="timeline-post">
-          <h3 class="mb-3 text-primary">Información Escolar</h3>
-          <p><strong>Nombre de la Institución:</strong> <span>{{ old('nombre')??$estudia->nombre}}</span></p>
-          <p><strong>Grado que cursa:</strong> <span>{{ old('grado')??$estudia->grado}}</span></p>
-          @if($paciente->carrera)
-          <p><strong>Carrera:</strong> {{ old('carrera')??$paciente->carrera}}</p>
-          @endif
-          </div>
-          @endif 
-          <div class="timeline-post">
-            <h3 class="mb-3 text-primary">Diagnostico Previo</h3>            
-            <p><strong>Descripción de Diagnostico</strong> <span>{{$diagnostico_previo->descripcion}}</span></p>
-            <p><strong>Posible Tratamiento</strong> <span>{{$diagnostico_previo->posible_tratamiento}}</span></p>
-            <p><strong>Necesidades </strong> <span>{{$diagnostico_previo->necesidades_odontologicas}}</span></p>
-          </div>
+            @endif
+            @endif
+            @if(!is_null($estudia))
+            <div class="timeline-post">
+              <h3 class="mb-3 text-primary">Información Escolar</h3>
+              <p><strong>Nombre de la Institución:</strong> <span>{{ old('nombre')??$estudia->nombre}}</span></p>
+              <p><strong>Grado que cursa:</strong> <span>{{ old('grado')??$estudia->grado}}</span></p>
+              @if($paciente->carrera)
+              <p><strong>Carrera:</strong> {{ old('carrera')??$paciente->carrera}}</p>
+              @endif
+            </div>
+            @endif
+            <div class="timeline-post">
+              <h3 class="mb-3 text-primary">Diagnostico Previo</h3>
+              <p><strong>Descripción de Diagnostico</strong> <span>{{$diagnostico_previo->descripcion}}</span></p>
+              <p><strong>Posible Tratamiento</strong> <span>{{$diagnostico_previo->posible_tratamiento}}</span></p>
+              <p><strong>Necesidades </strong> <span>{{$diagnostico_previo->necesidades_odontologicas}}</span></p>
+            </div>
+            <div class="timeline-post">
+              <h3 class="mb-3 text-primary">Ficha de Ortodoncia</h3>
+              <div class="row">
+                <div class="col-12 col-md-3 text-justify">
+                  <p class="font-weight-bold">Facial Frontal</p>
+                  <p>Facial Frontal: <span class="font-weight-bold">{{$facial_frontal->facialFrontal}}</span></p>
+                  <p>Tercios: <span class="font-weight-bold">{{$facial_frontal->tercios}}</span></p>
+                  <p>Sonrisa: <span class="font-weight-bold">{{$facial_frontal->sonrisa}}</span></p>
+                  <p> Simetria: <span class="font-weight-bold">{{$facial_frontal->simetria ? 'SI':'NO'}}</span></p>
+                  <p> Competencia: <span class="font-weight-bold">{{$facial_frontal->competencia ? 'SI':'NO'}}</span></p>
+                </div>
+                <div class="col-12 col-md-3 text-justify">
+                  <p class="font-weight-bold">Perfil</p>
+                  <p>Perfil Superior: <span class="font-weight-bold">{{$perfil_paciente->perfilSuperior}}</span></p>
+                  <p>Perfil Inferior: <span class="font-weight-bold">{{$perfil_paciente->perfilInferior}}</span></p>
+                  <p>Angulo Nasolabial: <span class="font-weight-bold">{{$perfil_paciente->anguloNasolabial}}</span></p>
+                  <p>Nariz <span class="font-weight-bold">{{$perfil_paciente->nariz}}</span></p>
+                  <p>Labios <span class="font-weight-bold">{{$perfil_paciente->labios}}</span></p>
+                </div>
+                <div class="col-12 col-md-3 text-justify">
+                  <p class="font-weight-bold">Denticion</p>
+                  <p>Denticion: <span class="font-weight-bold">{{$denticion->denticion}}</span></p>
+                  <p>Faltantes: <span class="font-weight-bold">{{$denticion->faltantes}}</span></p>
+                </div>
+                <div class="col-12 col-md-3 text-justify">
+                  <p class="font-weight-bold">Lineas Medias</p>
+                  @if ($lineas_medias->maxilar == "normal")
+                    <p>Maxilar: <span class="font-weight-bold">{{$lineas_medias->maxilar}}</span></p>  
+                  @else
+                    <p>Maxilar: <span class="font-weight-bold">{{$lineas_medias->maxilar}}</span></p>  
+                    <p>Desviado a la: <span class="font-weight-bold">{{$lineas_medias->mxDesviado}}</span></p>
+                    <p>Con: <span class="font-weight-bold">{{$lineas_medias->mxCantidad}}  mm</span></p>
+                  @endif
+                  @if ($lineas_medias->mandibula == "normal")
+                  <p>Mandibula: <span class="font-weight-bold">{{$lineas_medias->mandibula}}</span></p>
+                  @else
+                  <p>Mandibula: <span class="font-weight-bold">{{$lineas_medias->mandibula}}</span></p>
+                  <p>Desviado a la: <span class="font-weight-bold">{{$lineas_medias->mdDesviado}}</span></p>
+                  <p>Con: <span class="font-weight-bold">{{$lineas_medias->mdCantidad}}  mm</span></p>
+                  @endif
+                </div>                
+              </div>
+              <div class="row">
+                  <div class="col-12 col-md-3 text-justify">
+                    <p class="font-weight-bold">Tejidos Intraorales</p>
+                    <p>Inspección: <span class="font-weight-bold">{{$tejidos_intraorales->inspeccion}}</span></p>
+                    <p>Palpación: <span class="font-weight-bold">{{$tejidos_intraorales->palpacion}}</span></p>
+                    <p>Encías: <span class="font-weight-bold">{{$tejidos_intraorales->encias}}</span></p>
+                    <p>Frenillos: <span class="font-weight-bold">{{$tejidos_intraorales->frenillos}}</span></p>
+                  </div>
+                  <div class="col-12 col-md-3 text-justify">
+                    <p class="font-weight-bold">Mordidas</p>
+                    <p>Sobre mordida horizontal: <span class="font-weight-bold">{{$mordidas->sobreMordidaHorizontal}} mm</span></p>
+                    <p>Sobre mordida vertical: <span class="font-weight-bold">{{$mordidas->sobreMordidadVertical}} mm</span></p>
+                    <p>Mordidas Cruzadas: <span class="font-weight-bold">{{$mordidas->mordidasCruzadas}} mm</span></p>
+                  </div>
+                  <div class="col-12 col-md-3 text-justify">
+                    <p class="font-weight-bold">Relaciones Sagitales</p>
+                    <p>Molar Derecha: <span class="font-weight-bold">{{$relaciones_sagitales->molarDerecha}}</span></p>
+                    <p>Molar Izquierda: <span class="font-weight-bold">{{$relaciones_sagitales->molarIzquierda}}</span></p>
+                    <p>Canina Derecha: <span class="font-weight-bold">{{$relaciones_sagitales->caninaDerecha}}</span></p>
+                    <p>Canina Izquierda: <span class="font-weight-bold">{{$relaciones_sagitales->caninaIzquierda}}</span></p>
+                  </div>
+                  <div class="col-12 col-md-3 text-justify">
+                    <p class="font-weight-bold">Analisis de Espacio y Discrepancia</p>
+                    <p>Arco Maxilar: <span class="font-weight-bold">{{$espacio_discrepancia->longitudArcoMx}} mm</span></p>
+                    <p>Arco Mandibular: <span class="font-weight-bold">{{$espacio_discrepancia->longitudArcoMd}} mm</span></p>
+                    <p>Bolton Anterior: <span class="font-weight-bold">{{$espacio_discrepancia->boltonAnterior}}</span></p>
+                    <p>Bolton Total: <span class="font-weight-bold">{{$espacio_discrepancia->boltonTotal}}</span></p>
+                  </div>
+              </div>
+            </div>
         </div>
         <div class="tab-pane fade" id="user-settings">
           <div class="tile user-settings">

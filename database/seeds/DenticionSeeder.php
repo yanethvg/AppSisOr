@@ -11,6 +11,6 @@ class DenticionSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\Denticion::class,20)->create();
     }
 }

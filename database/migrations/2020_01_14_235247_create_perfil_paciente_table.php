@@ -17,8 +17,9 @@ class CreatePerfilPacienteTable extends Migration
             $table->bigIncrements('id');
             $table->string('perfilSuperior',12);
             $table->string('perfilInferior', 8);
-            $table->string('anguloNasolabial',10);
+            $table->string('anguloNasolabial',11);
             $table->string('nariz',8);
+            $table->string('labios',20);
             $table->bigInteger('paciente_id')->unsigned();
             $table->foreign('paciente_id')->references('id')->on('pacientes');
         });

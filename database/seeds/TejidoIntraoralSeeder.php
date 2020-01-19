@@ -11,6 +11,6 @@ class TejidoIntraoralSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\TejidoIntraoral::class,20)->create();
     }
 }

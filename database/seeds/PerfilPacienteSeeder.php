@@ -11,6 +11,6 @@ class PerfilPacienteSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\PerfilPaciente::class,20)->create();
     }
 }

@@ -54,46 +54,47 @@ const app = new Vue({
                 facialFrontal: {
                     frontal: "",
                     tercios: "",
-                    simetria: "",
+                    simetria: true,
                     sonrisa: "",
-                    competencia: "",
+                    competencia: true,
                 },
                 perfil: {
                     perfilSuperior: "",
                     perfilInferior: "",
                     anguloNasolabial: "",
                     nariz: "",
-                    labios: "",
+                    labios: ""
                 },
                 tejidosIntraorales: {
                     inspeccion: "",
                     palpacion: "",
                     encias: "",
-                    frenillos: "",
+                    frenillos: ""
                 },
                 denticion: {
                     denticion: "",
-                    faltantes: "",
+                    faltantes: ""
                 },
                 lineasMedias: {
-                    lineaMX: "",
-                    lineaMD: "",
+                    maxilar:"",
+                    mxDesviado: "",
+                    mxCantidad: 0.0,
+                    mandibula: "",
+                    mdDesviado: "",
+                    mdCantidad: 0.0
                 },
                 mordidas: {
-                    horizontal: "",
+                    horizontal: 0.0,
                     vertical: "",
-                    mordidasCruzadas: "",
+                    mordidasCruzadas: ""
                 },
                 relacionesSagitales: {
                     molarDerecha: "",
                     molarIzquierda: "",
                     caninaDerecha: "",
-                    caninaIzquierda: "",
+                    caninaIzquierda: ""
                 },
-                espacioDiscrepancia: {
-                    arcoMaxilar: "",
-                    arcoMandibular: "",
-                },
+                
             },
             dientesMaxilarDerecho: [
                 { nombre: "1-1", valor: 0 },
@@ -168,8 +169,7 @@ const app = new Vue({
         lineaMd: true,
         primerTercio: "",
         segundoTercio: "",
-        tercerTercio: "",
-
+        tercerTercio: ""
     },
 
     methods: {
@@ -248,9 +248,14 @@ const app = new Vue({
         }
     },
     computed: {
-        unionTercios(){
+        unionTercios() {
             this.paciente.fichaDeOrtodoncia.facialFrontal.tercios = "";
-            this.paciente.fichaDeOrtodoncia.facialFrontal.tercios = this.primerTercio + "-" + this.segundoTercio + "-" + this.tercerTercio;
+            this.paciente.fichaDeOrtodoncia.facialFrontal.tercios =
+                this.primerTercio +
+                "-" +
+                this.segundoTercio +
+                "-" +
+                this.tercerTercio;
             return this.paciente.fichaDeOrtodoncia.facialFrontal.tercios;
         },
         totalSumMaxilarDerecho() {
@@ -314,7 +319,7 @@ const app = new Vue({
                 this.paciente.arcoMandibular - this.paciente.totalMandibula);
         },
         resultadoBoltonAnterior() {
-            this.boltonAnterior = 0;
+            this.paciente.boltonAnterior = 0;
             let dientesPacienteMaxilarDerecho = this.paciente
                 .dientesMaxilarDerecho;
             let dientesPacienteMaxilarIzquierdo = this.paciente
@@ -340,12 +345,12 @@ const app = new Vue({
                 }
             }
             if (sumMaxilar != 0) {
-                this.boltonAnterior = (sumMandibula / sumMaxilar) * 100;
+                this.paciente.boltonAnterior = (sumMandibula / sumMaxilar) * 100;
             }
-            return this.boltonAnterior.toFixed(1);
+            return this.paciente.boltonAnterior.toFixed(1);
         },
-        resultadoBoltonTotal(){
-            this.boltonTotal = 0;
+        resultadoBoltonTotal() {
+            this.paciente.boltonTotal = 0;
             let dientesPacienteMaxilarDerecho = this.paciente
                 .dientesMaxilarDerecho;
             let dientesPacienteMaxilarIzquierdo = this.paciente
@@ -371,9 +376,16 @@ const app = new Vue({
                 }
             }
             if (sumMaxilar != 0) {
-                this.boltonTotal = (sumMandibula / sumMaxilar) * 100;
+                this.paciente.boltonTotal = (sumMandibula / sumMaxilar) * 100;
             }
-            return this.boltonTotal.toFixed(1);
+            return this.paciente.boltonTotal.toFixed(1);
+        },
+        lineaMediaMx(){
+            return this.paciente.fichaDeOrtodoncia.lineasMedias.maxilar = this.lineaMx ? "normal" : "desviado";
+        },
+        lineaMediaMd(){
+            return this.paciente.fichaDeOrtodoncia.lineasMedias.mandibula = this.lineaMd ? "normal" : "desviado";
         }
+        
     }
 });

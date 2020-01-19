@@ -11,6 +11,6 @@ class DientesPacienteSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\DientesPaciente::class,20)->create();
     }
 }

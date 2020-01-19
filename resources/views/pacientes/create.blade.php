@@ -623,8 +623,8 @@ Crear Expediente
                                                     for="facialFrontal">Facial Frontal</label>
                                             </div>
                                             <select class="custom-select" id="frontal"
-                                            v-model="paciente.fichaDeOrtodoncia.facialFrontal.frontal" name="frontal">
-                                                <option selected>Seleccionar</option>
+                                            v-model="paciente.fichaDeOrtodoncia.facialFrontal.frontal" name="frontal">  
+                                                <option disabled value="">seleccionar</option>                                           
                                                 <option value="dolicofacial">Dolicofacial</option>
                                                 <option value="mesofacial">Mesofacial</option>
                                                 <option value="branquifacial">Branquifacial</option>
@@ -637,18 +637,19 @@ Crear Expediente
                                                 <label class="input-group-text font-weight-bold">Tercios</label>
                                             </div>
                                             <select class="custom-select" id="primerTercio" v-model= "primerTercio" name="primerTercio">
-                                                <option selected>0</option>
+                                                <option disabled value="">x</option>
                                                 <option v-for="i in 100" :value="i" v-text="i"></option>
                                             </select>
                                             <select class="custom-select" id="segundoTercio" v-model= "segundoTercio" name="segundoTercio">
-                                                <option selected>0</option>
+                                                <option disabled value="">x</option>
                                                 <option v-for="i in 100" :value="i" v-text="i"></option>
                                             </select>
                                             <select class="custom-select" id="tercerTercio" v-model= "tercerTercio" name="tercerTercio">
-                                                <option selected>0</option>
+                                                <option disabled value="">x</option>
                                                 <option v-for="i in 100" :value="i" v-text="i"></option>
                                             </select>
                                         </div>
+                                        <p v-show="false" v-text="unionTercios"></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -659,9 +660,9 @@ Crear Expediente
                                                     for="simetria">Simetria</label>
                                             </div>
                                             <select class="custom-select" id="simetria" v-model="paciente.fichaDeOrtodoncia.facialFrontal.simetria" name="simetria">
-                                                <option selected>Seleccionar</option>
-                                                <option value="true">Si</option>
-                                                <option value="false">No</option>
+                                                <option disabled value="">Seleccionar</option>
+                                                <option :value="true">Si</option>
+                                                <option :value="false">No</option>
                                             </select>
                                         </div>
                                     </div>
@@ -672,7 +673,7 @@ Crear Expediente
                                                     for="sonrisa">Sonrisa</label>
                                             </div>
                                             <select class="custom-select" id="sonrisa" v-model="paciente.fichaDeOrtodoncia.facialFrontal.sonrisa" name="sonrisa">
-                                                <option selected>Seleccionar</option>
+                                                <option disabled value="">Seleccionar</option>
                                                 <option value="dental">Dental</option>
                                                 <option value="ginvival">Ginvival</option>
                                             </select>
@@ -685,9 +686,9 @@ Crear Expediente
                                                     for="competencia">Competencia</label>
                                             </div>
                                             <select class="custom-select" id="competencia" v-model="paciente.fichaDeOrtodoncia.facialFrontal.competencia" name="competencia">
-                                                <option selected>Seleccionar</option>
-                                                <option value="true">Si</option>
-                                                <option value="false">No</option>
+                                                <option disabled value="">Seleccionar</option>
+                                                <option :value="true">Si</option>
+                                                <option :value="false">No</option>
                                             </select>
                                         </div>
                                     </div>
@@ -701,7 +702,7 @@ Crear Expediente
                                                     for="perfilSuperior">Perfil Superior</label>
                                             </div>
                                             <select class="custom-select" id="perfilSuperior" v-model="paciente.fichaDeOrtodoncia.perfil.perfilSuperior" name="perfilSuperior">
-                                                <option selected>Seleccionar</option>
+                                                <option disabled value="">Seleccionar</option>
                                                 <option value="ortognatico">Ortognático</option>
                                                 <option value="divAnte">Div. Ante.</option>
                                                 <option value="divPost">Div. Post.</option>
@@ -715,7 +716,7 @@ Crear Expediente
                                                     for="perfilInferior">Perfil Inferior</label>
                                             </div>
                                             <select class="custom-select" id="perfilInferior" v-model="paciente.fichaDeOrtodoncia.perfil.perfilInferior" name="perfilInferior">
-                                                <option selected>Seleccionar</option>
+                                                <option disabled value="">Seleccionar</option>
                                                 <option value="recto">Recto</option>
                                                 <option value="concavo">Concavo</option>
                                                 <option value="convexo">Convexo</option>
@@ -731,7 +732,7 @@ Crear Expediente
                                                     for="anguloNasolabial">Ángulo Nasolabial</label>
                                             </div>
                                             <select class="custom-select" id="anguloNasolabial" v-model="paciente.fichaDeOrtodoncia.perfil.anguloNasolabial" name="anguloNasolabial">
-                                                <option selected>Seleccionar</option>
+                                                <option disabled value="">Seleccionar</option>
                                                 <option value="normal">Normal</option>
                                                 <option value="aumentado">Aumentado</option>
                                                 <option value="distanciado">Distanciado</option>
@@ -745,7 +746,7 @@ Crear Expediente
                                                     for="nariz">Nariz</label>
                                             </div>
                                             <select class="custom-select" id="nariz" v-model="paciente.fichaDeOrtodoncia.perfil.nariz" name="nariz">
-                                                <option selected>Seleccionar</option>
+                                                <option disabled value="">Seleccionar</option>
                                                 <option value="normal">Normal</option>
                                                 <option value="grande">Grande</option>
                                                 <option value="pequeña">pequeña</option>
@@ -759,7 +760,7 @@ Crear Expediente
                                                     for="labios">Labios</label>
                                             </div>
                                             <select class="custom-select" id="labios" v-model="paciente.fichaDeOrtodoncia.perfil.labios" name="labios">
-                                                <option selected>Seleccionar</option>
+                                                <option disabled value="">Seleccionar</option>
                                                 <option value="competente">Competente</option>
                                                 <option value="incompetente">Incompetente</option>
                                             </select>
@@ -808,7 +809,7 @@ Crear Expediente
                                                     for="">Dentición</label>
                                             </div>
                                             <select class="custom-select" id="denticion" v-model="paciente.fichaDeOrtodoncia.denticion.denticion" name="denticion">
-                                                <option selected>Seleccionar</option>
+                                                <option disabled value="">Seleccionar</option>
                                                 <option value="Primario">Primario</option>
                                                 <option value="Mixto">Mixto</option>
                                                 <option value="Permanente">Permanente</option>
@@ -831,17 +832,20 @@ Crear Expediente
                                             <div class="input-group-prepend">
                                                 <label class="input-group-text font-weight-bold" for="">Mx</label>
                                             </div>
-                                            <select class="custom-select" id="lineaMX" v-model="paciente.fichaDeOrtodoncia.lineasMedias.lineaMX" name="lineaMx" v-model="lineaMx">
+                                            <select class="custom-select" id="lineaMX" name="lineaMx" v-model="lineaMx" >
+                                                <option disabled value="">Seleccionar</option>
                                                 <option :value="true" selected>Normal</option>
                                                 <option :value="false">Desviado</option>
                                             </select>
-                                            <select class="custom-select" id="" name="" v-if="!lineaMx">
-                                                <option value="izquierda" selected>Izquierda</option>
+                                            <select class="custom-select" id="" name="" v-if="!lineaMx" v-model="paciente.fichaDeOrtodoncia.lineasMedias.mxDesviado">
+                                                <option disabled value="">Seleccionar</option>
+                                                <option value="izquierda">Izquierda</option>
                                                 <option value="derecha">Derecha</option>
                                             </select>
-                                            <input type="number" class="form-control" name="" id="" v-if="!lineaMx"
+                                            <input type="number" class="form-control" name="" id="" v-if="!lineaMx" v-model.number="paciente.fichaDeOrtodoncia.lineasMedias.mxCantidad"
                                                 placeholder="En milimetro">
                                         </div>
+                                        <p v-show="false" v-text="lineaMediaMx"></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -850,17 +854,20 @@ Crear Expediente
                                             <div class="input-group-prepend">
                                                 <label class="input-group-text font-weight-bold" for="">Md</label>
                                             </div>
-                                            <select class="custom-select" id="lineaMd" v-model="paciente.fichaDeOrtodoncia.lineasMedias.lineaMD" name="lineaMd" v-model="lineaMd">
+                                            <select class="custom-select" id="lineaMd" name="lineaMd" v-model="lineaMd">
+                                                <option disabled value="">Seleccionar</option>
                                                 <option :value="true" selected>Normal</option>
                                                 <option :value="false">Desviado</option>
                                             </select>
-                                            <select class="custom-select" id="" name="" v-if="!lineaMd">
-                                                <option value="izquierda" selected>Izquierda</option>
+                                            <select class="custom-select" id="" name="" v-if="!lineaMd" v-model="paciente.fichaDeOrtodoncia.lineasMedias.mdDesviado">
+                                                <option disabled value="">Seleccionar</option>
+                                                <option value="izquierda">Izquierda</option>
                                                 <option value="derecha">Derecha</option>
                                             </select>
-                                            <input type="number" class="form-control" name="" id="" v-if="!lineaMd"
+                                            <input type="number" class="form-control" name="" id="" v-if="!lineaMd" v-model.number="paciente.fichaDeOrtodoncia.lineasMedias.mdCantidad"
                                                 placeholder="En milimetro">
                                         </div>
+                                        <p v-show="false" v-text="lineaMediaMd"></p>
                                     </div>
                                 </div>
                                 <p class="text-center font-weight-bold">Sobremordidas</p>
@@ -870,7 +877,7 @@ Crear Expediente
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Horizontal</span>
                                             </div>
-                                            <input type="number" v-model="paciente.fichaDeOrtodoncia.mordidas.horizontal" class="form-control" placeholder="mm" min="0" max="10">
+                                            <input type="number" v-model.number="paciente.fichaDeOrtodoncia.mordidas.horizontal" class="form-control" placeholder="mm" min="0" max="10">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
@@ -879,7 +886,8 @@ Crear Expediente
                                                 <label class="input-group-text font-weight-bold" for="">Vertical</label>
                                             </div>
                                             <select class="custom-select" v-model="paciente.fichaDeOrtodoncia.mordidas.vertical">
-                                                <option value="1/3" selected>1/3</option>
+                                                <option disabled value="">Seleccionar</option>
+                                                <option value="1/3">1/3</option>
                                                 <option value="2/3">2/3</option>
                                                 <option value="3/3">3/3</option>
                                                 <option value="profunda">Profunda</option>
@@ -905,7 +913,8 @@ Crear Expediente
                                                     Derecha</label>
                                             </div>
                                             <select class="custom-select" v-model="paciente.fichaDeOrtodoncia.relacionesSagitales.molarDerecha">
-                                                <option value="claseI" selected>Clase I</option>
+                                                <option disabled value="">Seleccionar</option>
+                                                <option value="claseI">Clase I</option>
                                                 <option value="claseII">Clase II</option>
                                                 <option value="claseIII">Clase III</option>
                                                 <option value="c.c">C.C</option>
@@ -920,7 +929,8 @@ Crear Expediente
                                                     Izquierda</label>
                                             </div>
                                             <select class="custom-select" v-model="paciente.fichaDeOrtodoncia.relacionesSagitales.molarIzquierda" >
-                                                <option value="claseI" selected>Clase I</option>
+                                                <option disabled value="">Seleccionar</option>
+                                                <option value="claseI" >Clase I</option>
                                                 <option value="claseII">Clase II</option>
                                                 <option value="claseIII">Clase III</option>
                                                 <option value="c.c">C.C</option>
@@ -937,7 +947,8 @@ Crear Expediente
                                                     Izquierda</label>
                                             </div>
                                             <select class="custom-select" v-model="paciente.fichaDeOrtodoncia.relacionesSagitales.caninaDerecha">
-                                                <option value="claseI" selected>Clase I</option>
+                                                <option disabled value="">Seleccionar</option>
+                                                <option value="claseI">Clase I</option>
                                                 <option value="claseII">Clase II</option>
                                                 <option value="claseIII">Clase III</option>
                                                 <option value="c.c">C.C</option>
@@ -952,7 +963,8 @@ Crear Expediente
                                                     Izquierda</label>
                                             </div>
                                             <select class="custom-select" v-model="paciente.fichaDeOrtodoncia.relacionesSagitales.caninaIzquierda">
-                                                <option value="claseI" selected>Clase I</option>
+                                                <option disabled value="">Seleccionar</option>
+                                                <option value="claseI">Clase I</option>
                                                 <option value="claseII">Clase II</option>
                                                 <option value="claseIII">Clase III</option>
                                                 <option value="c.c">C.C</option>
@@ -966,15 +978,15 @@ Crear Expediente
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="">Longitud de Arco Maxilar:</label>
-                                            <input type="number" class="form-control" name="" id="arcoMaxilar" v-model="paciente.fichaDeOrtodoncia.espacioDiscrepancia.arcoMaxilar"
-                                                placeholder="Valor en mm" v-model="paciente.arcoMaxilar">
+                                            <input type="number" class="form-control" name="" id="arcoMaxilar" 
+                                                placeholder="Valor en mm" v-model.number="paciente.arcoMaxilar">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="">Longitud de Arco Mandibular:</label>
-                                            <input type="number" class="form-control" name="" id="arcoMandibular" v-model="paciente.fichaDeOrtodoncia.espacioDiscrepancia.arcoMandibular"
-                                                placeholder="Valor en mm" v-model="paciente.arcoMandibular">
+                                            <input type="number" class="form-control" name="" id="arcoMandibular" 
+                                                placeholder="Valor en mm" v-model.number="paciente.arcoMandibular">
                                         </div>
                                     </div>
                                 </div>

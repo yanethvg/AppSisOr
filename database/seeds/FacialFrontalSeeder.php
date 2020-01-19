@@ -11,6 +11,6 @@ class FacialFrontalSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\FacialFrontal::class,20)->create();
     }
 }

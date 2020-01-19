@@ -11,6 +11,6 @@ class MordidaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\Mordida::class,20)->create();
     }
 }

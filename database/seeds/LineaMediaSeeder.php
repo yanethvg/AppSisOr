@@ -11,6 +11,6 @@ class LineaMediaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\LineaMedia::class,20)->create();
     }
 }
