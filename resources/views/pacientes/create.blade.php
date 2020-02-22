@@ -623,8 +623,8 @@ Crear Expediente
                                                     for="facialFrontal">Facial Frontal</label>
                                             </div>
                                             <select class="custom-select" id="frontal"
-                                            v-model="paciente.fichaDeOrtodoncia.facialFrontal.frontal" name="frontal">  
-                                                <option disabled value="">seleccionar</option>                                           
+                                            v-model="paciente.fichaDeOrtodoncia.facialFrontal.frontal" name="frontal">
+                                                <option disabled value="">seleccionar</option>
                                                 <option value="dolicofacial">Dolicofacial</option>
                                                 <option value="mesofacial">Mesofacial</option>
                                                 <option value="branquifacial">Branquifacial</option>
@@ -978,14 +978,14 @@ Crear Expediente
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="">Longitud de Arco Maxilar:</label>
-                                            <input type="number" class="form-control" name="" id="arcoMaxilar" 
+                                            <input type="number" class="form-control" name="" id="arcoMaxilar"
                                                 placeholder="Valor en mm" v-model.number="paciente.arcoMaxilar">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="">Longitud de Arco Mandibular:</label>
-                                            <input type="number" class="form-control" name="" id="arcoMandibular" 
+                                            <input type="number" class="form-control" name="" id="arcoMandibular"
                                                 placeholder="Valor en mm" v-model.number="paciente.arcoMandibular">
                                         </div>
                                     </div>
@@ -1128,6 +1128,43 @@ Crear Expediente
                                         </p>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header text-center" id="headingThree">
+                            <h2 class="mb-0">
+                                <button class="btn" type="button" data-toggle="collapse"
+                                    data-target="#analisiCefalometrico" aria-expanded="false"
+                                    aria-controls="analisiCefalometrico">
+                                    Análisis Cefalométrico
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="analisiCefalometrico" class="collapse show" aria-labelledby="headingThree"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <p class="text-center font-weight-bold">Análisis</p>
+                            </div>
+                                <table class="table table-bordered table-hover">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th class="text-center">Nombre Análisis</th>
+                                            <th class="text-center">Valor</th>
+                                            <th class="text-center">Interpretación</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="cefalometrico in paciente.cefalometrico">
+                                            <td> <span v-text="cefalometrico.nombre"></span></td>
+                                            <td>
+                                                <input type="number" class="form-control" :name="cefalometrico.nombre"
+                                                    :id="cefalometrico.nombre" v-model.number="cefalometrico.valor">
+                                            </td>
+                                            <td><span v-text="cefalometrico.valor < cefalometrico.valorRegular ? cefalometrico.menor : (cefalometrico.valor > cefalometrico.valorRegular ? cefalometrico.mayor : cefalometrico.normal) "></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

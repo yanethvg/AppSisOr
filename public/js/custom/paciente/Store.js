@@ -94,7 +94,7 @@ const app = new Vue({
                     caninaDerecha: "",
                     caninaIzquierda: ""
                 },
-                
+
             },
             dientesMaxilarDerecho: [
                 { nombre: "1-1", valor: 0 },
@@ -135,6 +135,30 @@ const app = new Vue({
                 { nombre: "4-6", valor: 0 },
                 { nombre: "4-7", valor: 0 },
                 { nombre: "4-8", valor: 0 }
+            ],
+            cefalometrico: [
+                { nombre: "Convexidad", valor: 2, valorRegular: 2, descripcion:"1", menor:"Protrusión Mx. Clase III", normal:"Normal", mayor:"Protrusión Mx. Clase II" },
+                { nombre: "SNA", valor: 82, valorRegular: 82, descripcion:"1", menor:"Retrognatismo Mx", normal:"Normal", mayor:"Prognatismo Mx" },
+                { nombre: "SNB", valor: 80, valorRegular: 80, descripcion:"1", menor:"Retrognatismo Md", normal:"Normal", mayor:"Prognatismo Md" },
+                { nombre: "ANB", valor: 2, valorRegular: 2, descripcion:"1", menor:"Clase III Esqueletal", normal:"Clase I Esqueletal", mayor:"Clase II Esqueletal" },
+                { nombre: "Profundidad maxilar", valor: 90, valorRegular: 90, descripcion:"1", menor:"Retrusión Maxila", normal:"Normal", mayor:"Protrusión Maxilar" },
+                { nombre: "Profundidad facial", valor: 90, valorRegular: 90, descripcion:"1", menor:"Retrognatismo Md", normal:"Normal", mayor:"Prognatismo Md" },
+                { nombre: "Longitud del cuerpo Md", valor: 65, valorRegular: 65, descripcion:"1", menor:"Retrusión Md", normal:"Normal", mayor:"Protusión Md" },
+                { nombre: "Altura facial inferior", valor: 47, valorRegular: 47, descripcion:"1", menor:"Mordida Profunda", normal:"Normal", mayor:"Mordida Abierta" },
+                /*{ nombre: "Altura maxilar", valor: 53, valorRegular: 53, descripcion:"1", menor:"", normal:"", mayor:"" },
+                { nombre: "Altura facial posterior", valorRegular: 55, valor: 55, descripcion:"1", menor:"", normal:"", mayor:"" },
+                { nombre: "Plano palatal", valor: 1, valorRegular: 1, descripcion:"1", menor:"", normal:"", mayor:"" },
+                { nombre: "Longitud de labio superior", valorRegular: 24, valor: 24, descripcion:"1", menor:"", normal:"", mayor:"" },
+                { nombre: "Protusión labial", valor: -2, valorRegular: -2, descripcion:"1", menor:"", normal:"", mayor:"" },*/
+                { nombre: "Eje facial", valor: 90, valorRegular: 90, descripcion:"1", menor:"Dolicofacial Crecimiento Vertical", normal:"Normal Mesofacial Crecimiento Neutro", mayor:"Braquifacial Crecimiento Horizontal" },
+                { nombre: "Cono facial", valor: 68, valorRegular: 68, descripcion:"1", menor:"Patrón Vertical Dolicofacial", normal:"Normal Mesofacial", mayor:"Patrón Horizontal Braquifacial" },
+                /*{ nombre: "Plano mandibular", valor: 26, valorRegular: 26, descripcion:"1", menor:"", normal:"", mayor:"" },
+                { nombre: "Protrusión incisivo Mx", valor: 3.5, valorRegular: 3.5, descripcion:"1", menor:"", normal:"", mayor:"" },
+                { nombre: "Protrusión incisivo Md", valor: 1, valorRegular: 1, descripcion:"1", menor:"", normal:"", mayor:"" },
+                { nombre: "Inc. Mx-Franckfurt", valor: 110, valorRegular: 110, descripcion:"1", menor:"", normal:"", mayor:"" },
+                { nombre: "Inc. Md.-P. mandibular", valor: 90, valorRegular: 90, descripcion:"1", menor:"", normal:"", mayor:"" },
+                { nombre: "Wits", valor: 0, valorRegular: 0, descripcion:"1", menor:"", normal:"", mayor:"" },*/
+                { nombre: "Ángulo naso-labial", valor: 102, valorRegular: 102, descripcion:"1", menor:"Clase III Esqueletal", normal:"Clase I Esqueletal", mayor:"Clase II Esqueletal" },
             ],
             sumMaxilarDerecho: 0,
             sumMaxilarIzquierdo: 0,
@@ -386,6 +410,6 @@ const app = new Vue({
         lineaMediaMd(){
             return this.paciente.fichaDeOrtodoncia.lineasMedias.mandibula = this.lineaMd ? "normal" : "desviado";
         }
-        
+
     }
 });

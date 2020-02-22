@@ -226,9 +226,9 @@ Ver Expediente
                 <div class="col-12 col-md-3 text-justify">
                   <p class="font-weight-bold">Lineas Medias</p>
                   @if ($lineas_medias->maxilar == "normal")
-                    <p>Maxilar: <span class="font-weight-bold">{{$lineas_medias->maxilar}}</span></p>  
+                    <p>Maxilar: <span class="font-weight-bold">{{$lineas_medias->maxilar}}</span></p>
                   @else
-                    <p>Maxilar: <span class="font-weight-bold">{{$lineas_medias->maxilar}}</span></p>  
+                    <p>Maxilar: <span class="font-weight-bold">{{$lineas_medias->maxilar}}</span></p>
                     <p>Desviado a la: <span class="font-weight-bold">{{$lineas_medias->mxDesviado}}</span></p>
                     <p>Con: <span class="font-weight-bold">{{$lineas_medias->mxCantidad}}  mm</span></p>
                   @endif
@@ -239,7 +239,7 @@ Ver Expediente
                   <p>Desviado a la: <span class="font-weight-bold">{{$lineas_medias->mdDesviado}}</span></p>
                   <p>Con: <span class="font-weight-bold">{{$lineas_medias->mdCantidad}}  mm</span></p>
                   @endif
-                </div>                
+                </div>
               </div>
               <div class="row">
                   <div class="col-12 col-md-3 text-justify">
@@ -269,6 +269,39 @@ Ver Expediente
                     <p>Bolton Anterior: <span class="font-weight-bold">{{$espacio_discrepancia->boltonAnterior}}</span></p>
                     <p>Bolton Total: <span class="font-weight-bold">{{$espacio_discrepancia->boltonTotal}}</span></p>
                   </div>
+                  <div class="card border-primary mb-3">
+                    <div class="card-header text-white bg-primary">Análisis Cefalométrico</div>
+                    <div class="card-body ">
+                        <div class="form-group ">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="col-12 col-md-5">
+                                        <table class="table table-bordered table-hover">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th class="text-center">Nombre Análisis</th>
+                                                    <th class="text-center">Valor</th>
+                                                    <th class="text-center">Interpretación</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!--<tr ="cefalometrico in paciente.cefalometrico">
+                                                    <td> <span v-text="cefalometrico.nombre"></span></td>
+                                                    <td>
+                                                        <input class="form-control" type="number" name="cefalometrico[]"
+                                                            value="">
+                                                    </td>
+                                                    <td><span v-text="cefalometrico->valor < cefalometrico.valorRegular ? cefalometrico.menor :
+                                                        (cefalometrico->valor > cefalometrico.valorRegular ? cefalometrico->mayor : cefalometrico.normal) "></span></td>
+                                                </tr>-->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
               </div>
             </div>
         </div>

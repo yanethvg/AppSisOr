@@ -94,4 +94,20 @@ class Paciente extends Model
         $this->dientes()->saveMany($dientesInstances);
 
     }
+
+    public function cefalometricos(){
+        return $this->hasMany(Cefalometrico::class);
+    }
+
+    public function syncCefalometrico($cefalometricos){
+
+        $cefalometricosInstances=[];
+        foreach ($cefalometricos as $cefalometrico) {
+            array_push($cefalometricosInstances,  new Cefalometrico(['nombre'=>$cefalometrico['nombre'],
+            'valor'=>$cefalometrico['valor'],'valorRegular'=>$cefalometrico['valorRegular'],'descripcion'=>$cefalometrico['descripcion'],
+            'menor'=>$cefalometrico['menor'], 'normal'=>$cefalometrico['normal'], 'mayor'=>$cefalometrico['mayor']]));
+        }
+        $this->cefalometricos()->saveMany($cefalometricosInstances);
+
+    }
 }

@@ -715,7 +715,7 @@ Editar Expediente
                 </div>
                 <div class="card border-primary mb-3">
                     <div class="card-header text-white bg-primary">Diagnostico</div>
-                    <div class="card-body ">                        
+                    <div class="card-body ">
                         <div class="form-group ">
                             <div class="row">
                                 <div class="col">
@@ -733,6 +733,38 @@ Editar Expediente
                                         <label for="necesidadOdontologica">Descripcion del Diagnostico</label>
                                         <textarea id="necesidadOdontologica" class="form-control" name="necesidadOdontologica"
                                             rows="3">{{$diagnostico_previo->necesidades_odontologicas }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card border-primary mb-3">
+                    <div class="card-header text-white bg-primary">Análisis Cefalométrico</div>
+                    <div class="card-body ">
+                        <div class="form-group ">
+                            <div class="row">
+                                <div class="col">
+                                        <table class="table table-bordered table-hover">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th class="text-center">Nombre Análisis</th>
+                                                    <th class="text-center">Valor</th>
+                                                    <th class="text-center">Interpretación</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="cefalometrico in paciente.cefalometrico">
+                                                    <td> <span v-text="cefalometrico.nombre"></span></td>
+                                                    <td>
+                                                        <!---<input class="form-control" type="number" name="cefalometrico[]"
+                                                            value="">--->
+                                                    </td>
+                                                    <td><span v-text="cefalometrico.valor < cefalometrico.valorRegular ? cefalometrico.menor :
+                                                        (cefalometrico.valor > cefalometrico.valorRegular ? cefalometrico.mayor : cefalometrico.normal) "></span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>

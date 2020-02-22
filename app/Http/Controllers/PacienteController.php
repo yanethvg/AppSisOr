@@ -21,9 +21,10 @@ use App\TejidoIntraoral;
 use App\Denticion;
 use App\LineaMedia;
 use App\Mordida;
-use  App\RelacionSagital;
+use App\RelacionSagital;
 use App\Discrepancia;
 use App\DientesPaciente;
+use App\Cefalometrico;
 use Carbon\Carbon;
 
 
@@ -203,11 +204,14 @@ class PacienteController extends Controller
         $espacio_discrepancia->boltonAnterior = $request->boltonAnterior;
         $espacio_discrepancia->boltonTotal = $request->boltonTotal;
         $paciente->espacioDiscrepancia()->save($espacio_discrepancia);
-        //Dientes       
+        //Dientes
         $paciente->syncDientes($request->dientesMaxilarDerecho);
         $paciente->syncDientes($request->dientesMaxilarIzquierdo);
         $paciente->syncDientes($request->dientesMandibulaDerecho);
         $paciente->syncDientes($request->dientesMandibulaIzquierdo);
+
+        /****** Análisis Cefalométrico ******/
+        $paciente->syncCefalometrico($request->cefalometrico);
 
         return response()->json(['respuesta' => 'Paciente Creado con Exito']);
     }
@@ -221,6 +225,7 @@ class PacienteController extends Controller
         $antecedente_odontologico = $paciente->antecedenteOdontologico()->get()->first();
         $antecedente_ortodoncico = $paciente->antecedenteOrtodoncico()->get()->first();
         $diagnostico_previo = $paciente->diagnosticoPrevio()->get()->first();
+        $cefalometricos = $paciente->cefalometricos()->get()->all();
         $edad = Carbon::parse($paciente->fecha_nacimiento)->age;
         return view('pacientes.edit', compact(
             'paciente',
@@ -231,7 +236,8 @@ class PacienteController extends Controller
             'antecedente_medico',
             'antecedente_odontologico',
             'antecedente_ortodoncico',
-            'diagnostico_previo'
+            'diagnostico_previo',
+            'cefalometricos'
         ));
     }
     public function update(PacienteRequestUpdate $request, $id)
@@ -324,6 +330,11 @@ class PacienteController extends Controller
         $diagnostico_previo->posible_tratamiento = $request->planDeTratamiento;
         $diagnostico_previo->necesidades_odontologicas = $request->necesidadOdontologica;
         $paciente->diagnosticoPrevio()->save($diagnostico_previo);
+
+        //Análisis Cefalometrico
+        $cefalometricos = Cefalometrico::where('paciente_id', $id)->delete();
+        //$paciente->syncCefalometrico($request->cefalometrico);
+
         return redirect('/pacientes')->with(['msj' => 'Paciente modificado con exito ']);
     }
     public function show($id)
@@ -344,6 +355,7 @@ class PacienteController extends Controller
         $mordidas = $paciente->mordida()->get()->first();
         $relaciones_sagitales = $paciente->relacionSagital()->get()->first();
         $espacio_discrepancia = $paciente->espacioDiscrepancia()->get()->first();
+        $cefalometricos = $paciente->cefalometricos()->get()->all();
         $edad = Carbon::parse($paciente->fecha_nacimiento)->age;
         return view('pacientes.show', compact(
             'paciente',
@@ -362,7 +374,8 @@ class PacienteController extends Controller
             'lineas_medias',
             'mordidas',
             'relaciones_sagitales',
-            'espacio_discrepancia'
+            'espacio_discrepancia',
+            'cefalometricos'
         ));
     }
 }
